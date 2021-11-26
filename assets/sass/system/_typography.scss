@@ -1,0 +1,114 @@
+@mixin fontRobotoCondensed {
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+}
+
+@mixin fontRoboto {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+@mixin fontEBGaramond {
+  font-family: 'EB Garamond', Arial, Helvetica, sans-serif;
+}
+
+@mixin fontMontserrat {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+@mixin display {
+  @include fontRobotoCondensed();
+  font-size: 89px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 104px;
+  letter-spacing: 0em;
+}
+
+@mixin headline {
+  @include fontEBGaramond();
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90px;
+  letter-spacing: 0em;
+}
+
+@mixin h1 {
+  //styleName: Heading 1;
+  @include fontEBGaramond();
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 90px;
+  letter-spacing: 0em;
+}
+
+@mixin h2 {
+  @include fontRobotoCondensed();
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 75px;
+  letter-spacing: 0em;
+}
+
+@mixin h3 {
+  @include fontRobotoCondensed();
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+}
+
+@mixin h4 {
+  @include fontRobotoCondensed();
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+}
+
+@mixin h5 {
+  @include fontMontserrat();
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.08em;
+}
+
+@mixin p {
+  @include fontEBGaramond();
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0em;
+}
+
+@mixin pSmall {
+  @include fontEBGaramond();
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+}
+
+@mixin input {
+  @include fontMontserrat();
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0em;
+}
+
+@mixin caption {
+  @include fontRoboto();
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+}

@@ -1,0 +1,22 @@
+$xs-spacer: 0.75rem;
+$sm-spacer: 1.5rem;
+$md-spacer: 2.25rem;
+$lg-spacer: 3rem;
+$xl-spacer: 6rem;
+$xxl-spacer: 9rem;
+$mobile-bp: 1080px;
+$container-bp: 1376px;
+
+@mixin containerWidth() {
+  max-width: $container-bp;
+  width: $container-bp;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: $container-bp) {
+    padding-left: 18px;
+    padding-right: 18px;
+    max-width: 100%;
+    width: 100%;
+  }
+}

@@ -1,0 +1,39 @@
+@mixin resetBtn() {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+@mixin btnTransition() {
+  transition: .3s ease all;
+}
+
+@mixin btnFlat() {
+  @include resetBtn;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  @include btnTransition();
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    color: $dark-cinnamon;
+    border-bottom: 2px solid $dark-cinnamon;
+  }
+}
+
+@mixin btnDisabled {
+  background: $mild-gray;
+  color: $dark-gray;
+
+  a,
+  span {
+    color: $dark-gray;
+
+  }
+}

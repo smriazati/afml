@@ -1,0 +1,44 @@
+{
+    "root": true,
+    "project": {
+      "name": "Advocates for Minor Leaguers"
+    },
+    "api": {
+      "projectId": "dp5p6k9n",
+      "dataset": "production"
+    },
+    "plugins": [
+      "@sanity/base",
+      "@sanity/components",
+      "@sanity/default-layout",
+      "@sanity/default-login",
+      "@sanity/desk-tool",
+      "@sanity/dashboard"
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          "@sanity/vision"
+        ]
+      }
+    },
+    "parts": [
+      {
+        "name": "part:@sanity/base/schema",
+        "path": "./schemas/schema"
+      },
+      {
+        "name": "part:@sanity/desk-tool/structure",
+        "path": "src/desk"
+      },
+      {
+        "implements": "part:@sanity/base/brand-logo",
+        "path": "src/logo.js"
+      },
+      {
+        "implements": "part:@sanity/base/theme/variables/override-style",
+        "path": "src/variables.css"
+      }
+    ]
+  }
+  

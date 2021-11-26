@@ -1,0 +1,122 @@
+<template>
+  <div class="home-banner">
+    <div class="circle-illustration"></div>
+    <div
+      class="circle-trail"
+      ref="circleTrail"
+      :style="`width: ${refRight * 2}px; height: ${
+        refRight * 2
+      }px; top: ${circleTop}px; right: 0; padding-bottom: ${refRight}px`"
+    ></div>
+    <div class="wrapper" ref="wrapper">
+      <h2>
+        We believe Minor Leaguers deserve <strong>fair pay</strong> and
+        <strong>equitable treatment</strong>.
+      </h2>
+      <div class="button-wrapper" ref="btnWrapper">
+        <SystemBtnCircle msg="Learn more" dest="/theproblem" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  mounted() {
+    this.$nextTick(() => {
+      this.drawCurve();
+    });
+    window.addEventListener("resize", () => {
+      this.drawCurve();
+    });
+  },
+  data() {
+    return {
+      refRight: null,
+      refTop: null,
+      circleTop: null,
+    };
+  },
+  methods: {
+    drawCurve() {
+      const circleTrail = this.$refs.circleTrail;
+      const btn = this.$refs.btnWrapper;
+
+      if (!circleTrail || !btn) {
+        return;
+      }
+
+      const windowWidth = window.innerWidth;
+      const refWidth = btn.offsetWidth;
+      const refLeft = btn.offsetLeft;
+      const refRight = windowWidth - refWidth - refLeft;
+      const refTop = btn.offsetTop;
+      const refHeight = btn.offsetHeight;
+      this.refRight = refRight;
+      this.refTop = refTop;
+      this.circleTop = refTop + refHeight / 2;
+    },
+  },
+};
+</script>
+
+
+<style lang="scss">
+.home-banner {
+  overflow: hidden;
+  background: $light-gray;
+  .wrapper {
+    @include containerWidth;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  position: relative;
+  padding: 300px 0;
+  padding: 25vh 0;
+  .circle-trail {
+    position: absolute;
+    border: 3px dashed $dark-cinnamon;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+  }
+  h2 {
+    position: relative;
+    @include fontMontserrat;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 80px;
+    letter-spacing: 0em;
+    @media (min-width: $mobile-bp) {
+      max-width: 58%;
+    }
+
+    strong {
+      @include fontRobotoCondensed;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 80px;
+      letter-spacing: 0em;
+      text-transform: uppercase;
+    }
+  }
+  .button-wrapper {
+    padding-left: 32px;
+    position: relative;
+    button {
+      background: $light-gray;
+    }
+  }
+  .circle-illustration {
+    width: 669px;
+    height: 669px;
+    border: 1px solid $md-gray;
+    border-radius: 50%;
+    position: absolute;
+    right: -334px;
+    top: 0;
+  }
+}
+</style>
