@@ -1,9 +1,12 @@
 <template>
   <div class="about page">
     <section class="intro">
-      <h1 class="headline section-title">About</h1>
-      <div v-if="about" class="text">
-        <p>{{ about.about }}</p>
+      <div class="line-animation" ref="lineAnim"></div>
+      <div class="text-wrapper">
+        <h1 class="headline section-title">About</h1>
+        <div v-if="about" class="text">
+          <p>{{ about.about }}</p>
+        </div>
       </div>
     </section>
 
@@ -135,6 +138,41 @@ export default {
         margin-bottom: $xl-spacer;
       }
     }
+  }
+}
+
+@keyframes lineAnimateIn {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 300%;
+  }
+}
+.page.about {
+  .intro {
+    position: relative;
+    .line-animation {
+      border-left: 1px dashed $md-gray;
+      background: transparent;
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 10px;
+      // height: 300%;
+      height: 0;
+      animation: lineAnimateIn 3s ease-in forwards;
+      transform-origin: top;
+      transform: rotate(45deg);
+      z-index: 5;
+    }
+    .text-wrapper {
+      z-index: 6;
+    }
+  }
+  .roster {
+    position: relative;
+    z-index: 6;
   }
 }
 </style>

@@ -14,6 +14,8 @@ html {
 }
 
 button {
+  @include resetBtn;
+
   &:hover {
     cursor: pointer;
   }
@@ -40,6 +42,61 @@ button {
       }
     }
   }
+
+
+}
+
+.btn-light {
+  background: $light-sand;
+  color: $indigo;
+  padding: 32px 0;
+  @include fontMontserrat;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 16px;
+
+  &.active {
+    background: $dark-cinnamon;
+    color: $white;
+
+    span,
+    a {
+      color: $white;
+
+    }
+  }
+}
+
+
+
+.btn-orange {
+  background: $dark-cinnamon;
+  color: $indigo;
+  padding: 32px 0;
+  @include fontMontserrat;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 16px;
+  transition: .3s ease all;
+
+  span,
+  a {
+    color: $light-sand;
+  }
+
+  &:hover {
+    background: $light-sand;
+
+    span,
+    a {
+      color: $indigo;
+    }
+  }
+
+  &.disabled {
+    @include btnDisabled;
+
+  }
 }
 
 .center-text {
@@ -55,9 +112,6 @@ a {
   display: none;
 }
 
-button {
-  @include resetBtn;
-}
 
 
 .display {
@@ -178,7 +232,7 @@ nav ul {
   text-align: center;
   text-transform: uppercase;
 
-  a {
+  span {
     @include btnFlat;
     color: $dark-gray;
     text-decoration: none;
@@ -188,6 +242,21 @@ nav ul {
   width: 100%;
 }
 
+input {
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  @include input;
+
+  &::placeholder {
+    text-align: center;
+    @include fontMontserrat;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 16px;
+    color: $dark-gray;
+  }
+}
 
 .form-group {
   display: flex;
@@ -289,4 +358,31 @@ input[disabled] {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 32px;
+}
+
+
+.flex-row {
+  display: flex;
+}
+
+
+.custom-checkbox-input {
+  position: relative;
+  display: flex;
+
+  &:before {
+    content: ' ';
+    flex: 0 0 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    border: 2px solid $white;
+    background: $indigo;
+    transition: .3s ease all;
+  }
+
+  &.checked {
+    &:before {
+      background: $white;
+    }
+  }
 }

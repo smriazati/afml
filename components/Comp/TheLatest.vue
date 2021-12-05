@@ -2,19 +2,22 @@
   <div class="the-latest">
     <h3 class="h1 section-title">The Latest</h3>
     <div class="feed-wrapper">
-      <vue-masonry-wall
-        :items="newsItems"
-        :options="{ width: 320, padding: 32 }"
-        @append="append"
-      >
+      <vue-masonry-wall :items="newsItems" :options="options">
         <template v-slot:default="{ item }">
           <CompTheLatestItem :item="item" />
         </template>
       </vue-masonry-wall>
     </div>
-    <!-- <button @click="getMoreNews" class="read-more">
-      <nuxt-link to="">Read more</nuxt-link>
-    </button> -->
+    <div class="pagination">
+      <button
+        v-if="!loadedAllArticles"
+        @click="getMoreNews"
+        class="read-more plain"
+      >
+        <span>Read more</span>
+      </button>
+      <p v-else class="caption">End of The Latest</p>
+    </div>
   </div>
 </template>
 <script>
@@ -36,7 +39,7 @@ export default {
       "twitter": twitter.link,
       _id
     }`;
-    console.log(query);
+    // console.log(query);
     this.newsItems = await this.$sanity.fetch(query);
     if (this.newsItems.length < this.articleCount) {
       this.loadedAllArticles = true;
@@ -49,19 +52,26 @@ export default {
     articleCount: 10,
     fetches: 0,
     loadedAllArticles: false,
+    options: {
+      width: 320,
+      padding: {
+        2: 8,
+        default: 32,
+      },
+    },
   }),
   methods: {
     append() {
-      console.log("append");
-      // for (let i = 0; i < 20; i++) {
-      //   this.newsItems.push({
-      //     title: `Item ${this.newsItems.length}`,
-      //     content: "Content",
-      //   });
-      // }
+      console.log("append api call here");
     },
     async getMoreNews() {
       if (!this.loadedAllArticles) {
+        console.log(
+          "querying articles",
+          this.articleCount * this.fetches + 1,
+          " through ",
+          this.articleCount * this.fetches + this.articleCount
+        );
         const query = groq`*[_type == "newsItem"]| order(date desc)[${
           this.articleCount * this.fetches + 1
         } ... ${this.articleCount * this.fetches + this.articleCount}]{
@@ -78,7 +88,7 @@ export default {
           _id
     }`;
         const newItems = await this.$sanity.fetch(query);
-        console.log(query);
+        // console.log(query);
 
         if (newItems.length > 0) {
           for (const item of newItems) {
@@ -106,7 +116,20 @@ export default {
     border-top: 2px solid $mild-gray;
     padding-top: $md-spacer;
     max-width: 1375px;
+    overflow: hidden;
     margin: 0 auto;
+  }
+  .pagination {
+    display: flex;
+    width: 100%;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+    p {
+      padding-top: 80px;
+      display: block;
+      width: 100%;
+    }
   }
 }
 </style>

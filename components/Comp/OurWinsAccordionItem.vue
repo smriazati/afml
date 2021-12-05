@@ -1,5 +1,9 @@
 <template>
-  <div class="accordion-item" ref="accordionItem">
+  <div
+    class="accordion-item"
+    ref="accordionItem"
+    :class="isExpanded ? 'accordion-item-expanded' : ''"
+  >
     <div
       v-if="!isExpanded"
       class="accordion-open link-hover"

@@ -8,21 +8,6 @@
   "SanityImage": {
     "description": "Auto imported from node_modules/@nuxtjs/sanity/dist/components/sanity-image.js"
   },
-  "HomeBanner": {
-    "description": "Auto imported from components/Home/Banner.vue"
-  },
-  "HomeStats": {
-    "description": "Auto imported from components/Home/Stats.vue"
-  },
-  "SiteFooter": {
-    "description": "Auto imported from components/Site/Footer.vue"
-  },
-  "SiteHeader": {
-    "description": "Auto imported from components/Site/Header.vue"
-  },
-  "SiteNewsletter": {
-    "description": "Auto imported from components/Site/Newsletter.vue"
-  },
   "CompBillOfRights": {
     "description": "Auto imported from components/Comp/BillOfRights.vue"
   },
@@ -97,5 +82,20 @@
   },
   "SystemTweet": {
     "description": "Auto imported from components/System/Tweet.vue"
+  },
+  "HomeBanner": {
+    "description": "Auto imported from components/Home/Banner.vue"
+  },
+  "HomeStats": {
+    "description": "Auto imported from components/Home/Stats.vue"
+  },
+  "SiteFooter": {
+    "description": "Auto imported from components/Site/Footer.vue"
+  },
+  "SiteHeader": {
+    "description": "Auto imported from components/Site/Header.vue"
+  },
+  "SiteNewsletter": {
+    "description": "Auto imported from components/Site/Newsletter.vue"
   }
 }

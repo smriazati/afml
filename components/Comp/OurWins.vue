@@ -40,6 +40,7 @@ $container-padding: 40px;
   padding: $xl-spacer 0;
 
   .accordion-wrapper {
+    margin-top: $lg-spacer;
     .accordion-open {
       .title {
         @include fontRobotoCondensed;
@@ -121,6 +122,11 @@ $container-padding: 40px;
         }
       }
     }
+  }
+}
+.accordion-item-expanded + .accordion-item-expanded {
+  .accordion-collapse-area {
+    border-top: 0;
   }
 }
 </style>

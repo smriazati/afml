@@ -6,12 +6,13 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _628be2fe = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
 const _466f9594 = () => interopDefault(import('../pages/contact/index.vue' /* webpackChunkName: "pages/contact/index" */))
-const _67620564 = () => interopDefault(import('../pages/donate.vue' /* webpackChunkName: "pages/donate" */))
+const _d7605d5e = () => interopDefault(import('../pages/donate/index.vue' /* webpackChunkName: "pages/donate/index" */))
 const _653f49bc = () => interopDefault(import('../pages/faqs.vue' /* webpackChunkName: "pages/faqs" */))
 const _66ad4718 = () => interopDefault(import('../pages/newsletter.vue' /* webpackChunkName: "pages/newsletter" */))
 const _024bd6ae = () => interopDefault(import('../pages/thelatest.vue' /* webpackChunkName: "pages/thelatest" */))
 const _79563e26 = () => interopDefault(import('../pages/theproblem.vue' /* webpackChunkName: "pages/theproblem" */))
 const _0c2889c5 = () => interopDefault(import('../pages/contact/success.vue' /* webpackChunkName: "pages/contact/success" */))
+const _62e8ca42 = () => interopDefault(import('../pages/donate/success.vue' /* webpackChunkName: "pages/donate/success" */))
 const _143f5c4e = () => interopDefault(import('../pages/page/_id.vue' /* webpackChunkName: "pages/page/_id" */))
 const _fb78847a = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -36,7 +37,7 @@ export const routerOptions = {
     name: "contact"
   }, {
     path: "/donate",
-    component: _67620564,
+    component: _d7605d5e,
     name: "donate"
   }, {
     path: "/faqs",
@@ -58,6 +59,10 @@ export const routerOptions = {
     path: "/contact/success",
     component: _0c2889c5,
     name: "contact-success"
+  }, {
+    path: "/donate/success",
+    component: _62e8ca42,
+    name: "donate-success"
   }, {
     path: "/page/:id?",
     component: _143f5c4e,

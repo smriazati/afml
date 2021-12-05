@@ -26,6 +26,10 @@ export default {
   grid-row-gap: $lg-spacer;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: $mobile-bp) {
+    display: flex;
+    flex-direction: column;
+  }
   > * {
     width: 100%;
   }

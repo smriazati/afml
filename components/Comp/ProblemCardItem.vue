@@ -51,6 +51,13 @@ export default {
       transform: rotateY(180deg);
     }
   }
+  &.facing-front {
+    .card-back {
+      @media (max-width: $mobile-bp) {
+        height: 0;
+      }
+    }
+  }
   .card-content {
     flex: 2;
     display: grid;

@@ -1,11 +1,6 @@
 export { default as SanityContent } from '../../node_modules/@nuxtjs/sanity/dist/components/sanity-content.js'
 export { default as SanityFile } from '../../node_modules/@nuxtjs/sanity/dist/components/sanity-file.js'
 export { default as SanityImage } from '../../node_modules/@nuxtjs/sanity/dist/components/sanity-image.js'
-export { default as HomeBanner } from '../../components/Home/Banner.vue'
-export { default as HomeStats } from '../../components/Home/Stats.vue'
-export { default as SiteFooter } from '../../components/Site/Footer.vue'
-export { default as SiteHeader } from '../../components/Site/Header.vue'
-export { default as SiteNewsletter } from '../../components/Site/Newsletter.vue'
 export { default as CompBillOfRights } from '../../components/Comp/BillOfRights.vue'
 export { default as CompCTA } from '../../components/Comp/CTA.vue'
 export { default as CompCTASocial } from '../../components/Comp/CTASocial.vue'
@@ -31,6 +26,11 @@ export { default as SystemLogoCircle } from '../../components/System/LogoCircle.
 export { default as SystemLogoSecondary } from '../../components/System/LogoSecondary.vue'
 export { default as SystemSocialMenu } from '../../components/System/SocialMenu.vue'
 export { default as SystemTweet } from '../../components/System/Tweet.vue'
+export { default as HomeBanner } from '../../components/Home/Banner.vue'
+export { default as HomeStats } from '../../components/Home/Stats.vue'
+export { default as SiteFooter } from '../../components/Site/Footer.vue'
+export { default as SiteHeader } from '../../components/Site/Header.vue'
+export { default as SiteNewsletter } from '../../components/Site/Newsletter.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

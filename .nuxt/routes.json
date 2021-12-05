@@ -16,9 +16,9 @@
   {
     "name": "donate",
     "path": "/donate",
-    "component": "/Users/sarah/Sites/aml_v1/app/pages/donate.vue",
-    "chunkName": "pages/donate",
-    "_name": "_67620564"
+    "component": "/Users/sarah/Sites/aml_v1/app/pages/donate/index.vue",
+    "chunkName": "pages/donate/index",
+    "_name": "_d7605d5e"
   },
   {
     "name": "faqs",
@@ -54,6 +54,13 @@
     "component": "/Users/sarah/Sites/aml_v1/app/pages/contact/success.vue",
     "chunkName": "pages/contact/success",
     "_name": "_0c2889c5"
+  },
+  {
+    "name": "donate-success",
+    "path": "/donate/success",
+    "component": "/Users/sarah/Sites/aml_v1/app/pages/donate/success.vue",
+    "chunkName": "pages/donate/success",
+    "_name": "_62e8ca42"
   },
   {
     "name": "page-id",
