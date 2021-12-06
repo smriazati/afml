@@ -11,7 +11,7 @@
 
 <style lang="scss">
 .cta-wrapper {
-  display: flex;
+  @include flexRow;
   @include containerWidth();
   > * {
     flex: 1;
@@ -23,7 +23,8 @@
     &:first-child {
       padding-right: 40px;
       @media (max-width: $mobile-bp) {
-        padding-right: 16px;
+        padding-right: 0;
+        margin-bottom: 36px;
       }
     }
   }

@@ -77,6 +77,9 @@ export default {
 
 <style lang="scss">
 .home {
+  &.page {
+    margin-top: 0;
+  }
   main {
     section {
       position: relative;
@@ -85,6 +88,7 @@ export default {
       }
       &.newsletter {
         padding: $xxl-spacer 0;
+        overflow: hidden;
         > * {
           max-width: 1142px;
           margin: 0 auto;
@@ -92,6 +96,9 @@ export default {
       }
       &.cta {
         margin-bottom: $xxl-spacer;
+        @media (max-width: $collapse-bp) {
+          margin-bottom: $lg-spacer;
+        }
       }
     }
   }

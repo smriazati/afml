@@ -262,57 +262,52 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
 
-  label {
-    display: none;
-  }
+textarea,
+input {
+  @include input;
+  outline: none;
+  display: flex;
+  min-height: 100%;
+  flex: 1;
+  border: 0;
+  border-radius: 0;
+  background: $white;
+  color: $indigo;
+  padding: 10px 20px;
 
-  textarea,
-  input {
-    @include input;
-    outline: none;
-    display: flex;
-    min-height: 100%;
-    flex: 1;
-    border: 0;
-    border-radius: 0;
-    background: $white;
-    color: $indigo;
-    padding: 10px 20px;
-
-    &::placeholder {
-      color: $dark-cinnamon;
-      opacity: 1;
-      @include fontMontserrat;
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 30px;
-      letter-spacing: 0em;
-    }
-  }
-
-  button {
-    background: $white;
+  &::placeholder {
     color: $dark-cinnamon;
-    padding: 10px 20px;
+    opacity: 1;
+    @include fontMontserrat;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+  }
+}
+
+button {
+  background: $white;
+  color: $dark-cinnamon;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  i {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    i {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 23px;
-    }
-
-    &.flat {
-      @include btnFlat;
-    }
+    font-size: 23px;
   }
 
-
+  &.flat {
+    @include btnFlat;
+  }
 }
+
 
 .row {
   display: flex;
@@ -358,11 +353,24 @@ input[disabled] {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 32px;
+
+  @media (max-width: $collapse-bp) {
+    grid-column-gap: 8px;
+  }
+
+  overflow: hidden;
 }
 
 
 .flex-row {
-  display: flex;
+  @include flexRow;
+}
+
+
+.flex-row-mobile {
+  @media (max-width: $collapse-bp) {
+    flex-direction: row;
+  }
 }
 
 

@@ -1,101 +1,51 @@
 <template>
   <div class="header-wrapper">
-    <header
-      :class="mobileMenu.isExpanded ? 'expanded' : ''"
-      class="site-header"
-    >
-      <div class="logo">
-        <div v-if="!isMobile">
-          <nuxt-link to="/"> <SystemLogo /> </nuxt-link>
-        </div>
-        <div v-else>
-          <SystemLogoSecondary />
-        </div>
-      </div>
-      <div v-if="!isMobile" class="cta">
-        <button class="reset">
-          <nuxt-link to="/">Call to action</nuxt-link>
-        </button>
-      </div>
-      <nav class="nav">
-        <div v-if="isMobile">
-          <div class="menu-control">
-            <button v-if="!mobileMenu.isExpanded" @click="toggleMobileMenu">
-              <span>Menu</span>
-            </button>
-            <button v-else @click="toggleMobileMenu">
-              <span class="visually-hidden">Close menu</span
-              ><a-icon type="close"></a-icon>
-            </button>
+    <client-only>
+      <header
+        :class="mobileMenu.isExpanded ? 'expanded' : ''"
+        class="site-header"
+      >
+        <div class="logo">
+          <div v-if="!isMobile">
+            <nuxt-link to="/"> <SystemLogo /> </nuxt-link>
           </div>
-
-          <div class="main-nav-wrapper" v-if="mobileMenu.isExpanded">
-            <ul class="main-nav">
-              <li><nuxt-link to="/theproblem">The Problem</nuxt-link></li>
-              <li><nuxt-link to="/thelatest">The Latest</nuxt-link></li>
-              <li><nuxt-link to="/about">Who We Are</nuxt-link></li>
-              <li><nuxt-link to="/getinvolved">Get Involved</nuxt-link></li>
-            </ul>
-            <ul class="secondary-nav">
-              <li>
-                <a
-                  href="https://www.bonfire.com/store/advocates-for-minor-leaguers/"
-                  target="_blank"
-                  >Shop</a
-                >
-              </li>
-              <li><nuxt-link to="/give">Give</nuxt-link></li>
-              <li><nuxt-link to="/contact">Contact Us</nuxt-link></li>
-            </ul>
-            <div class="social-menu">
-              <SystemSocialMenu />
+          <div v-else>
+            <SystemLogoSecondary />
+          </div>
+        </div>
+        <div v-if="!isMobile" class="cta">
+          <button class="reset">
+            <nuxt-link to="/">Call to action</nuxt-link>
+          </button>
+        </div>
+        <nav class="nav">
+          <div v-if="isMobile">
+            <div class="menu-control">
+              <button v-if="!mobileMenu.isExpanded" @click="toggleMobileMenu">
+                <span>Menu</span>
+              </button>
+              <button v-else @click="toggleMobileMenu">
+                <span class="visually-hidden">Close menu</span
+                ><a-icon type="close"></a-icon>
+              </button>
             </div>
+            <SiteMobileNav
+              class="main-nav-wrapper"
+              v-if="mobileMenu.isExpanded"
+              @on-list-click="toggleMobileMenu"
+            />
           </div>
-        </div>
-        <div class="main-nav-wrapper" v-else>
-          <ul class="main-nav" ref="mainNav">
-            <li><nuxt-link to="/theproblem">The Problem</nuxt-link></li>
-            <li><nuxt-link to="/thelatest">The Latest</nuxt-link></li>
-            <li><nuxt-link to="/about">Who We Are</nuxt-link></li>
-            <li ref="dropdownParent">
-              <span class="link-hover block z-top" @click="toggleDropdown"
-                >Get Involved</span
-              >
-              <span ref="dropdown" class="dropdown">
-                <button @click="toggleDropdown">
-                  <span class="visually-hidden">Open dropdown</span
-                  ><span><a-icon type="down"></a-icon></span>
-                </button>
-                <ul
-                  v-show="desktopMenu.isDropdownExpanded"
-                  :style="`top: ${desktopMenu.menuHeight}px`"
-                >
-                  <li :style="`flex: 0 0 ${desktopMenu.menuHeight}px`">
-                    <a
-                      href="https://www.bonfire.com/store/advocates-for-minor-leaguers/"
-                      target="_blank"
-                      >Shop</a
-                    >
-                  </li>
-                  <li :style="`flex: 0 0 ${desktopMenu.menuHeight}px`">
-                    <nuxt-link to="/donate">Give</nuxt-link>
-                  </li>
-                  <li :style="`flex: 0 0 ${desktopMenu.menuHeight}px`">
-                    <nuxt-link to="/contact">Contact Us</nuxt-link>
-                  </li>
-                </ul>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </nav>
 
-      <nav v-if="!mobileMenu.isExpanded" class="donate">
-        <ul>
-          <li class="featured"><nuxt-link to="/donate">Donate</nuxt-link></li>
-        </ul>
-      </nav>
-    </header>
+          <SiteDesktopNav :desktopMenu="desktopMenu" v-else />
+        </nav>
+
+        <nav v-if="!mobileMenu.isExpanded" class="donate">
+          <ul>
+            <li class="featured"><nuxt-link to="/donate">Donate</nuxt-link></li>
+          </ul>
+        </nav>
+      </header>
+    </client-only>
   </div>
 </template>
 
@@ -121,9 +71,9 @@ export default {
       this.windowWidth = window.innerWidth;
       this.windowHeight = window.innerHeight;
     });
-    this.$nextTick(() => {
-      this.addListenerToDesktopNav();
-    });
+    if (this.isMobile) {
+      this.addListenersToMobileNav();
+    }
   },
   computed: {
     isMobile() {
@@ -138,11 +88,12 @@ export default {
     },
   },
   methods: {
-    addListenerToDesktopNav() {
-      const desktopNav = this.$refs.mainNav;
-
-      if (desktopNav) {
+    addListenersToMobileNav() {
+      const mobileNav = this.$refs.mobileMenu;
+      if (!mobileNav) {
+        return;
       }
+      console.log("mobile nav", mobileNav);
     },
     closeDropdown() {
       this.desktopMenu.isDropdownExpanded = false;
@@ -371,6 +322,9 @@ header.site-header {
         display: none;
         opacity: 0;
       }
+      button {
+        color: $indigo;
+      }
     }
     &.expanded {
       width: 100vw;
@@ -397,10 +351,17 @@ header.site-header {
           display: flex;
           align-items: center;
           justify-content: center;
+          @media (max-width: $collapse-bp) {
+            padding: 0;
+          }
           i {
             display: flex;
             align-items: center;
             justify-content: center;
+            @media (max-width: $collapse-bp) {
+              font-size: 13px;
+              color: $indigo;
+            }
           }
         }
       }
@@ -440,6 +401,9 @@ header.site-header {
             li {
               padding-right: 27px;
               font-size: 54px;
+              @media (max-width: $nav-bp) {
+                font-size: 35px;
+              }
             }
           }
         }

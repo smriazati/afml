@@ -110,6 +110,7 @@ export default {
         .col {
           grid-column-start: 2;
           grid-column-end: span 4;
+          max-width: 100%;
           .image {
             margin-top: $md-spacer;
 
@@ -132,9 +133,13 @@ export default {
         }
         .image {
           text-align: center;
+          img {
+            max-width: 100%;
+          }
         }
         .col {
           margin-bottom: $md-spacer;
+          max-width: 100%;
         }
       }
     }

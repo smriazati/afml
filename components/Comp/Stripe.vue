@@ -1,7 +1,7 @@
 <template>
   <div class="comp-stripe-wrapper">
     <form v-if="!donationSuccess">
-      <div class="donation-type flex-row">
+      <div class="donation-type flex-row flex-row-mobile">
         <button
           v-for="(item, index) in donationTypes"
           :key="index"
@@ -13,7 +13,7 @@
           <span>{{ item }}</span>
         </button>
       </div>
-      <div class="donation-amount flex-row">
+      <div class="donation-amount flex-row flex-row-mobile">
         <button
           v-for="(item, index) in amounts"
           :key="index"

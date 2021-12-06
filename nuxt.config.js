@@ -15,14 +15,6 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
-    // script: [
-    //   {
-    //     src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"
-    //   },
-    //   {
-    //     src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"
-    //   },
-    // ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ]
@@ -44,6 +36,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/antd-ui',
+    '~/plugins/metadata.js',
     "~/plugins/sanityImage.js",
     "~/plugins/route.js"
   ],
@@ -82,6 +75,11 @@ export default {
   generate: { fallback: '404.html' },
 
   build: {
+    babel: {
+      plugins: [
+        ['import', { libraryName: 'ant-design-vue', style: 'css' } ]
+      ]
+    },
     extractCSS: true,
     loaders: {
       limit: 0,

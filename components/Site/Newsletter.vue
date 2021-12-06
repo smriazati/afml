@@ -5,8 +5,8 @@
         <p>Keep up with the lastest news.</p>
         <p>Sign up for our newsletter!</p>
       </div>
-      <div class="form-group">
-        <label for="email">Your email</label>
+      <div class="flex-row">
+        <label for="email" class="visually-hidden">Your email</label>
         <input type="text" name="email" placeholder="Enter email here!" />
         <button><a-icon type="arrow-right" /></button>
       </div>
@@ -52,6 +52,10 @@ export default {
       line-height: 30px;
       letter-spacing: 0em;
       margin-top: 0 !important;
+      @media (max-width: $collapse-bp) {
+        font-size: 18px;
+        line-height: 26px;
+      }
     }
   }
 

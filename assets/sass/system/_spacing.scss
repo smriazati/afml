@@ -5,6 +5,7 @@ $lg-spacer: 3rem;
 $xl-spacer: 6rem;
 $xxl-spacer: 9rem;
 $mobile-bp: 1080px;
+$collapse-bp: $mobile-bp;
 $container-bp: 1376px;
 
 @mixin containerWidth() {
@@ -18,5 +19,13 @@ $container-bp: 1376px;
     padding-right: 18px;
     max-width: 100%;
     width: 100%;
+  }
+}
+
+@mixin flexRow() {
+  display: flex;
+
+  @media (max-width: $collapse-bp) {
+    flex-direction: column;
   }
 }

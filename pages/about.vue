@@ -4,8 +4,8 @@
       <div class="line-animation" ref="lineAnim"></div>
       <div class="text-wrapper">
         <h1 class="headline section-title">About</h1>
-        <div v-if="about" class="text">
-          <p>{{ about.about }}</p>
+        <div v-if="content" class="text">
+          <p>{{ content.about }}</p>
         </div>
       </div>
     </section>
@@ -27,18 +27,21 @@
 import { groq } from "@nuxtjs/sanity";
 
 export default {
-  async asyncData({ $sanity }) {
-    const query1 = groq`*[_type == "siteContent"]{about}`;
-    const about = await $sanity.fetch(query1).then((res) => res[0]);
+  async asyncData({ $sanity, store, app }) {
+    const slug = "about";
 
-    const metaQuery = groq`*[_type == "metadata" && page == 'about'][0]{
-    "pageDesc": pageMetadata.pageDesc,
-    "ogImage": pageMetadata.ogImage.asset->url}`;
-    const metadata = await $sanity
-      .fetch(metaQuery)
-      .then((res) => res.pageMetadata);
-    return { about, metadata };
+    // get page content
+    const query1 = groq`*[_type == "siteContent"]{${slug}}`;
+    const content = await $sanity.fetch(query1).then((res) => res[0]);
+
+    // not working as expected
+    app.$getPageMetadata(slug);
+    app.$getSiteMetadata();
+
+    // console.log(pageMetadata, siteMetadata);
+    return { content };
   },
+
   head() {
     return {
       title: this.title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase()),
@@ -46,28 +49,16 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: this.pageMetadata
-            ? this.pageMetadata.pageDesc
-              ? this.pageMetadata.pageDesc
-              : ""
-              ? ""
-              : ""
-            : ""
-            ? ""
-            : "",
+          content: this.$store.state.metadata.savedPagesMetadata?.description
+            ? this.metadata.description
+            : this.siteMetadata?.siteDescription,
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.pageMetadata
-            ? this.pageMetadata.ogImage.url
-              ? this.pageMetadata.ogImage.url
-              : ""
-              ? ""
-              : ""
-            : ""
-            ? ""
-            : "",
+          content: this.metadata?.socialImage
+            ? this.metadata.socialImage
+            : this.$store.state.metadata.siteSocialImage,
         },
       ],
     };

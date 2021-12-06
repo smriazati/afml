@@ -49,7 +49,7 @@ export default {
     @include containerWidth;
   }
   .fact-list {
-    display: flex;
+    @include flexRow;
     margin-bottom: 31px;
   }
   .fact-list-item {

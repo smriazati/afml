@@ -82,10 +82,17 @@ footer.site-footer {
   color: $white;
   position: relative;
   margin-top: 102px;
+  @media (max-width: $collapse-bp) {
+    margin-top: 60px;
+  }
   &::before {
     content: "";
     background: $indigo;
+
     padding-top: 102px;
+    @media (max-width: $collapse-bp) {
+      padding-top: 60px;
+    }
     width: 100%;
     height: 100%;
     position: absolute;

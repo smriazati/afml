@@ -74,6 +74,9 @@ export default {
   position: relative;
   padding: 300px 0;
   padding: 25vh 0;
+  @media (max-width: $collapse-bp) {
+    padding: 60px 0;
+  }
   .circle-trail {
     position: absolute;
     border: 3px dashed $dark-cinnamon;
@@ -92,6 +95,11 @@ export default {
     @media (min-width: $mobile-bp) {
       max-width: 58%;
     }
+    @media (max-width: $mobile-bp) {
+      font-size: 32px;
+      line-height: 42px;
+      text-align: center;
+    }
 
     strong {
       @include fontRobotoCondensed;
@@ -100,23 +108,43 @@ export default {
       line-height: 80px;
       letter-spacing: 0em;
       text-transform: uppercase;
+      @media (min-width: $mobile-bp) {
+        max-width: 58%;
+      }
+      @media (max-width: $mobile-bp) {
+        font-size: 36px;
+        line-height: 48px;
+      }
     }
   }
   .button-wrapper {
-    padding-left: 32px;
+    @media (min-width: $collapse-bp) {
+      padding-left: 32px;
+    }
+    @media (max-width: $collapse-bp) {
+      margin-top: 45px;
+      padding-left: 10%;
+    }
     position: relative;
     button {
       background: $light-gray;
     }
   }
   .circle-illustration {
+    position: absolute;
     width: 669px;
     height: 669px;
-    border: 1px solid $md-gray;
-    border-radius: 50%;
-    position: absolute;
     right: -334px;
     top: 0;
+
+    border: 1px solid $md-gray;
+    border-radius: 50%;
+
+    @media (max-width: $collapse-bp) {
+      width: 602px;
+      height: 602px;
+      right: -451px;
+    }
   }
 }
 </style>

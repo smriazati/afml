@@ -59,6 +59,27 @@
   "CompTimelineItem": {
     "description": "Auto imported from components/Comp/TimelineItem.vue"
   },
+  "HomeBanner": {
+    "description": "Auto imported from components/Home/Banner.vue"
+  },
+  "HomeStats": {
+    "description": "Auto imported from components/Home/Stats.vue"
+  },
+  "SiteDesktopNav": {
+    "description": "Auto imported from components/Site/DesktopNav.vue"
+  },
+  "SiteFooter": {
+    "description": "Auto imported from components/Site/Footer.vue"
+  },
+  "SiteHeader": {
+    "description": "Auto imported from components/Site/Header.vue"
+  },
+  "SiteMobileNav": {
+    "description": "Auto imported from components/Site/MobileNav.vue"
+  },
+  "SiteNewsletter": {
+    "description": "Auto imported from components/Site/Newsletter.vue"
+  },
   "SystemBtnArrow": {
     "description": "Auto imported from components/System/BtnArrow.vue"
   },
@@ -82,20 +103,5 @@
   },
   "SystemTweet": {
     "description": "Auto imported from components/System/Tweet.vue"
-  },
-  "HomeBanner": {
-    "description": "Auto imported from components/Home/Banner.vue"
-  },
-  "HomeStats": {
-    "description": "Auto imported from components/Home/Stats.vue"
-  },
-  "SiteFooter": {
-    "description": "Auto imported from components/Site/Footer.vue"
-  },
-  "SiteHeader": {
-    "description": "Auto imported from components/Site/Header.vue"
-  },
-  "SiteNewsletter": {
-    "description": "Auto imported from components/Site/Newsletter.vue"
   }
 }
