@@ -8,6 +8,51 @@
   "SanityImage": {
     "description": "Auto imported from node_modules/@nuxtjs/sanity/dist/components/sanity-image.js"
   },
+  "HomeBanner": {
+    "description": "Auto imported from components/Home/Banner.vue"
+  },
+  "HomeStats": {
+    "description": "Auto imported from components/Home/Stats.vue"
+  },
+  "SiteDesktopNav": {
+    "description": "Auto imported from components/Site/DesktopNav.vue"
+  },
+  "SiteFooter": {
+    "description": "Auto imported from components/Site/Footer.vue"
+  },
+  "SiteHeader": {
+    "description": "Auto imported from components/Site/Header.vue"
+  },
+  "SiteMobileNav": {
+    "description": "Auto imported from components/Site/MobileNav.vue"
+  },
+  "SiteNewsletter": {
+    "description": "Auto imported from components/Site/Newsletter.vue"
+  },
+  "SystemBtnArrow": {
+    "description": "Auto imported from components/System/BtnArrow.vue"
+  },
+  "SystemBtnCircle": {
+    "description": "Auto imported from components/System/BtnCircle.vue"
+  },
+  "SystemBtnPrimary": {
+    "description": "Auto imported from components/System/BtnPrimary.vue"
+  },
+  "SystemLogo": {
+    "description": "Auto imported from components/System/Logo.vue"
+  },
+  "SystemLogoCircle": {
+    "description": "Auto imported from components/System/LogoCircle.vue"
+  },
+  "SystemLogoSecondary": {
+    "description": "Auto imported from components/System/LogoSecondary.vue"
+  },
+  "SystemSocialMenu": {
+    "description": "Auto imported from components/System/SocialMenu.vue"
+  },
+  "SystemTweet": {
+    "description": "Auto imported from components/System/Tweet.vue"
+  },
   "CompBillOfRights": {
     "description": "Auto imported from components/Comp/BillOfRights.vue"
   },
@@ -58,50 +103,5 @@
   },
   "CompTimelineItem": {
     "description": "Auto imported from components/Comp/TimelineItem.vue"
-  },
-  "HomeBanner": {
-    "description": "Auto imported from components/Home/Banner.vue"
-  },
-  "HomeStats": {
-    "description": "Auto imported from components/Home/Stats.vue"
-  },
-  "SiteDesktopNav": {
-    "description": "Auto imported from components/Site/DesktopNav.vue"
-  },
-  "SiteFooter": {
-    "description": "Auto imported from components/Site/Footer.vue"
-  },
-  "SiteHeader": {
-    "description": "Auto imported from components/Site/Header.vue"
-  },
-  "SiteMobileNav": {
-    "description": "Auto imported from components/Site/MobileNav.vue"
-  },
-  "SiteNewsletter": {
-    "description": "Auto imported from components/Site/Newsletter.vue"
-  },
-  "SystemBtnArrow": {
-    "description": "Auto imported from components/System/BtnArrow.vue"
-  },
-  "SystemBtnCircle": {
-    "description": "Auto imported from components/System/BtnCircle.vue"
-  },
-  "SystemBtnPrimary": {
-    "description": "Auto imported from components/System/BtnPrimary.vue"
-  },
-  "SystemLogo": {
-    "description": "Auto imported from components/System/Logo.vue"
-  },
-  "SystemLogoCircle": {
-    "description": "Auto imported from components/System/LogoCircle.vue"
-  },
-  "SystemLogoSecondary": {
-    "description": "Auto imported from components/System/LogoSecondary.vue"
-  },
-  "SystemSocialMenu": {
-    "description": "Auto imported from components/System/SocialMenu.vue"
-  },
-  "SystemTweet": {
-    "description": "Auto imported from components/System/Tweet.vue"
   }
 }

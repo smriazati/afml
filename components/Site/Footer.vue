@@ -85,6 +85,9 @@ footer.site-footer {
   @media (max-width: $collapse-bp) {
     margin-top: 60px;
   }
+  @media (max-width: 1440px) and (min-width: $nav-bp) {
+    padding: 0 32px;
+  }
   &::before {
     content: "";
     background: $indigo;

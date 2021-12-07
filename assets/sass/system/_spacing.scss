@@ -8,6 +8,9 @@ $mobile-bp: 1080px;
 $collapse-bp: $mobile-bp;
 $container-bp: 1376px;
 
+$nav-bp: 1080px;
+
+
 @mixin containerWidth() {
   max-width: $container-bp;
   width: $container-bp;

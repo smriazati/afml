@@ -2,7 +2,11 @@
   <div class="roster">
     <h2 class="h1 section-title">Roster</h2>
     <div v-if="items" class="accordion-wrapper">
-      <CompRosterItem :item="items[0]" v-for="i in 10" :key="i" />
+      <CompRosterItem
+        :item="item"
+        v-for="(item, index) in items"
+        :key="index"
+      />
     </div>
   </div>
 </template>

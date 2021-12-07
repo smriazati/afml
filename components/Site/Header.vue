@@ -14,9 +14,14 @@
           </div>
         </div>
         <div v-if="!isMobile" class="cta">
-          <button class="reset">
-            <nuxt-link to="/">Call to action</nuxt-link>
-          </button>
+          <div v-if="items">
+            <button
+              v-if="items.headerCta.link && items.headerCta.text"
+              class="reset"
+            >
+              <a :href="items.headerCta.link">{{ items.headerCta.text }}</a>
+            </button>
+          </div>
         </div>
         <nav class="nav">
           <div v-if="isMobile">
@@ -50,9 +55,19 @@
 </template>
 
 <script>
+import { groq } from "@nuxtjs/sanity";
+
+const query = groq`*[_type == "siteSettings"][0]{
+  headerCta
+}`;
+
 export default {
+  async fetch() {
+    this.items = await this.$sanity.fetch(query);
+  },
   data() {
     return {
+      items: null,
       mobileMenu: {
         isExpanded: false,
       },
@@ -114,12 +129,19 @@ export default {
 </script>
 
 <style lang="scss">
-$nav-bp: 1080px;
+.default-layout.index {
+  header.site-header {
+    background: $light-sand;
+  }
+}
 
 header.site-header {
   // base
   position: relative;
   z-index: 11;
+  @media (max-width: 1440px) and (min-width: $nav-bp) {
+    padding: 0 32px;
+  }
   .z-top {
     z-index: 99;
   }

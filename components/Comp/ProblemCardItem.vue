@@ -1,7 +1,8 @@
 <template>
   <div
-    class="problem-card-item card-item"
+    class="link-hover problem-card-item card-item"
     :class="facingFront ? 'facing-front' : 'facing-back'"
+    @click="flipCard()"
   >
     <div class="card-content">
       <div class="card-front">

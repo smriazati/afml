@@ -1,11 +1,20 @@
 <template>
-  <div class="default-layout">
+  <div class="default-layout" :class="page">
     <SiteHeader />
     <nuxt class="wrapper" />
     <SiteFooter />
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      page: this.$route.name,
+    };
+  },
+};
+</script>
 <style lang="scss">
 .default-layout {
   min-height: 100vh;
