@@ -19,7 +19,12 @@
               v-if="items.headerCta.link && items.headerCta.text"
               class="reset"
             >
-              <a :href="items.headerCta.link">{{ items.headerCta.text }}</a>
+              <a v-if="!items.headerCta.newtab" :href="items.headerCta.link">{{
+                items.headerCta.text
+              }}</a>
+              <a v-else :href="items.headerCta.link" target="_blank">{{
+                items.headerCta.text
+              }}</a>
             </button>
           </div>
         </div>
@@ -267,9 +272,12 @@ header.site-header {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding-right: 10px;
-        padding-top: 5px;
+        padding-right: 8px;
+        // padding-top: 5px;
         color: $indigo;
+        span.icon {
+          padding: 0;
+        }
       }
       ul {
         position: absolute;

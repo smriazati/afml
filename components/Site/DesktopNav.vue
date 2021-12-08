@@ -11,7 +11,7 @@
         <span ref="dropdown" class="dropdown">
           <button @click="toggleDropdown">
             <span class="visually-hidden">Open dropdown</span
-            ><span><a-icon type="down"></a-icon></span>
+            ><span class="icon"><a-icon type="down"></a-icon></span>
           </button>
           <ul
             v-show="desktopMenu.isDropdownExpanded"

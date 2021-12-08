@@ -8,12 +8,6 @@
   "SanityImage": {
     "description": "Auto imported from node_modules/@nuxtjs/sanity/dist/components/sanity-image.js"
   },
-  "HomeBanner": {
-    "description": "Auto imported from components/Home/Banner.vue"
-  },
-  "HomeStats": {
-    "description": "Auto imported from components/Home/Stats.vue"
-  },
   "CompBillOfRights": {
     "description": "Auto imported from components/Comp/BillOfRights.vue"
   },
@@ -65,6 +59,12 @@
   "CompTimelineItem": {
     "description": "Auto imported from components/Comp/TimelineItem.vue"
   },
+  "HomeBanner": {
+    "description": "Auto imported from components/Home/Banner.vue"
+  },
+  "HomeStats": {
+    "description": "Auto imported from components/Home/Stats.vue"
+  },
   "SiteDesktopNav": {
     "description": "Auto imported from components/Site/DesktopNav.vue"
   },
@@ -79,6 +79,9 @@
   },
   "SiteNewsletter": {
     "description": "Auto imported from components/Site/Newsletter.vue"
+  },
+  "SiteNewsletterMailchimp": {
+    "description": "Auto imported from components/Site/NewsletterMailchimp.vue"
   },
   "SystemBtnArrow": {
     "description": "Auto imported from components/System/BtnArrow.vue"

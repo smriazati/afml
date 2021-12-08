@@ -6,12 +6,16 @@
         <p>Sign up for our newsletter!</p>
       </div>
       <div class="flex-row">
-        <label for="email" class="visually-hidden">Your email</label>
+        <!-- <label for="email" class="visually-hidden">Your email</label>
         <input type="text" name="email" placeholder="Enter email here!" />
-        <button><a-icon type="arrow-right" /></button>
+        <button><a-icon type="arrow-right" /></button> -->
+        <SiteNewsletterMailchimp />
       </div>
     </div>
-    <div :class="col ? 'center-text' : ''" class="disclaimer">
+    <div
+      :class="col ? 'center-text' : ''"
+      class="disclaimer medium-container-padding"
+    >
       <p class="caption">
         By providing your email address you consent to receive periodic updates
         from Advocates for Minor Leaguers.
@@ -114,6 +118,36 @@ export default {
     margin-top: 10px;
     @media (max-width: $mobile-bp) {
       text-align: center;
+    }
+  }
+
+  form {
+    .stacked-divs {
+      i {
+        display: flex;
+        font-size: 23px;
+        color: $dark-cinnamon;
+        background: $white;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s ease all;
+      }
+      input.transparent {
+        background: transparent;
+      }
+      input:hover {
+        i {
+          color: $indigo;
+        }
+      }
+      &:hover {
+        i {
+          background: $dark-cinnamon;
+          color: $white;
+        }
+      }
     }
   }
 }
