@@ -1,5 +1,5 @@
 <template>
-  <div class="default-layout" :class="page">
+  <div class="default-layout" :class="thisRoute">
     <SiteHeader />
     <nuxt class="wrapper" />
     <SiteFooter />
@@ -8,10 +8,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      page: this.$route.name,
-    };
+  computed: {
+    thisRoute() {
+      return this.$route.name;
+    },
   },
 };
 </script>

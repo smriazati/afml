@@ -45,5 +45,18 @@ export default {
       required: true,
     },
   },
+  methods: {
+    closeDropdown() {
+      this.desktopMenu.isDropdownExpanded = false;
+    },
+    toggleDropdown() {
+      this.desktopMenu.isDropdownExpanded =
+        !this.desktopMenu.isDropdownExpanded;
+
+      if (this.desktopMenu.isDropdownExpanded) {
+        this.desktopMenu.menuHeight = this.$refs.dropdownParent.offsetHeight;
+      }
+    },
+  },
 };
 </script>

@@ -34,6 +34,10 @@ export default {
       type: Object,
       required: true,
     },
+    index: {
+      type: Number,
+      required: true,
+    },
   },
   data() {
     return {
@@ -61,6 +65,9 @@ export default {
     },
     toggleAccordion() {
       this.isExpanded = !this.isExpanded;
+      if (this.isExpanded) {
+        this.$emit("on-open", this.index);
+      }
     },
   },
 };

@@ -47,6 +47,7 @@ export default {
 .home-stats {
   .wrapper {
     @include containerWidth;
+    @include mediumContainerPadding;
   }
   .fact-list {
     @include flexRow;
@@ -62,6 +63,7 @@ export default {
     align-items: center;
     text-align: center;
     border-bottom: 2px solid $mild-gray;
+    border-top: 2px solid $mild-gray;
     &:first-child {
       border-left: 2px solid $mild-gray;
     }
@@ -74,8 +76,8 @@ export default {
   }
   h3 {
     @include fontRobotoCondensed;
-    font-size: 89px;
-    font-weight: 700;
+    font-size: 78px;
+    line-height: 70px;
     line-height: 104px;
     letter-spacing: 0em;
   }
@@ -85,7 +87,7 @@ export default {
     @include fontEBGaramond;
     font-size: 24px;
     font-weight: 400;
-    line-height: 34px;
+    line-height: 30px;
     letter-spacing: 0em;
     max-width: 25ch;
     margin: 0 auto;

@@ -8,7 +8,7 @@
       <h3 class="title">
         <span class="text">
           <span class="name">{{ item.name }}</span>
-          <span class="role"> {{ item.role }}</span>
+          <span v-if="item.role" class="role"> {{ item.role }}</span>
         </span>
         <span class="icon"><a-icon type="down"></a-icon></span>
       </h3>
@@ -17,11 +17,11 @@
       <h3 class="title link-hover" @click="closeAccordion()">
         <span class="text">
           <span class="name">{{ item.name }}</span>
-          <span class="role"> {{ item.role }}</span>
+          <span v-if="item.role" class="role"> {{ item.role }}</span>
         </span>
         <span class="icon"><a-icon type="down"></a-icon></span>
       </h3>
-      <div class="row">
+      <div v-if="item.img" class="row">
         <figure v-if="item.img.asset">
           <SanityImage
             :asset-id="item.img.asset._ref"

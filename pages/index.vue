@@ -81,6 +81,7 @@ export default {
     margin-top: 0;
   }
   main {
+    overflow: hidden;
     section {
       position: relative;
       &.news {
@@ -88,7 +89,7 @@ export default {
       }
       &.newsletter {
         padding: $xxl-spacer 0;
-        overflow: hidden;
+        // overflow-x: hidden;
         > * {
           max-width: 1142px;
           margin: 0 auto;
@@ -100,19 +101,6 @@ export default {
           margin-bottom: $lg-spacer;
         }
       }
-    }
-  }
-
-  .newsletter {
-    position: relative;
-    .circle-illustration {
-      width: 669px;
-      height: 669px;
-      border: 1px solid $md-gray;
-      border-radius: 50%;
-      position: absolute;
-      right: -334px;
-      top: 0;
     }
   }
 }

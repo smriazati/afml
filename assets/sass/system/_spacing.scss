@@ -32,3 +32,11 @@ $nav-bp: 1080px;
     flex-direction: column;
   }
 }
+
+
+@mixin mediumContainerPadding() {
+  @media (max-width: 1440px) and (min-width: $nav-bp) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}

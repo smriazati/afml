@@ -27,7 +27,7 @@
       </div>
       <div class="donation-custom-amount flex-row">
         <input
-          class="btn-light"
+          class="btn-light btn-padding"
           ref="aCustom"
           v-model="customAmount"
           placeholder="Enter Custom Amount"

@@ -15,7 +15,7 @@
       <h4 class="title link-hover" @click="closeAccordion()">
         {{ item.headline }}
       </h4>
-      <p class="byline">{{ item.article.byline }}</p>
+      <p v-if="item.article.byline" class="byline">{{ item.article.byline }}</p>
       <p class="date">
         <span class="rotate">{{ convDate }}</span>
       </p>

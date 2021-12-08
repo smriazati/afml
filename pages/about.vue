@@ -165,5 +165,34 @@ export default {
     position: relative;
     z-index: 6;
   }
+
+  // override circle illustration position and color
+
+  section.newsletter {
+    position: relative;
+    z-index: 11;
+
+    > * {
+      position: relative;
+      z-index: 11;
+    }
+
+    > .circle-illustration {
+      width: 719px;
+      height: 719px;
+      border: 1px dashed $dark-cinnamon;
+      border-radius: 50%;
+      position: absolute;
+      left: -360px;
+      right: unset;
+      top: $xs-spacer;
+      z-index: 10;
+    }
+  }
+
+  section.newsletter + section.cta {
+    position: relative;
+    z-index: 11;
+  }
 }
 </style>

@@ -15,6 +15,18 @@ html {
 
 button {
   @include resetBtn;
+  width: 100%;
+  background: $white;
+  color: $dark-cinnamon;
+
+
+  span,
+  a {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   &:hover {
     cursor: pointer;
@@ -28,73 +40,97 @@ button {
     }
   }
 
-  &.plain {
 
-    a,
-    span {
-      color: inherit;
-      transition: .3s ease all;
-      border-bottom: 2px solid transparent;
-
-      &:hover {
-        color: $dark-cinnamon;
-        border-bottom: 2px solid $dark-cinnamon;
-      }
-    }
+  i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
   }
 
+  &.flat {
+    @include btnFlat;
+  }
 
+  &.plain {
+    @include btnFlat();
+  }
+
+  &.read-more {
+    text-transform: uppercase;
+  }
+
+}
+
+.btn-padding {
+  padding: 20px;
+}
+
+button[disabled],
+input[disabled],
+button.disabled {
+  pointer-events: none
 }
 
 .btn-light {
-  background: $light-sand;
-  color: $indigo;
-  padding: 32px 0;
   @include fontMontserrat;
   font-size: 18px;
   font-weight: 500;
   line-height: 16px;
 
+  span,
+  a,
+  &::placeholder {
+    background: $light-sand;
+    color: $indigo;
+    padding: 32px 0;
+  }
+
+  &::placeholder {
+    text-align: center;
+  }
+
   &.active {
-    background: $dark-cinnamon;
-    color: $white;
 
     span,
     a {
+      background: $dark-cinnamon;
       color: $white;
-
     }
   }
 }
 
 
-
 .btn-orange {
-  background: $dark-cinnamon;
-  color: $indigo;
-  padding: 32px 0;
   @include fontMontserrat;
   font-size: 18px;
   font-weight: 500;
   line-height: 16px;
-  transition: .3s ease all;
 
   span,
   a {
+    background: $dark-cinnamon;
+    padding: 32px 0;
+    transition: .3s ease all;
     color: $light-sand;
   }
 
   &:hover {
-    background: $light-sand;
 
     span,
     a {
+      background: $light-sand;
       color: $indigo;
     }
   }
 
   &.disabled {
-    @include btnDisabled;
+
+    span,
+    a {
+      @include btnDisabled;
+
+    }
 
   }
 }
@@ -148,6 +184,11 @@ p,
 ul,
 ol {
   @include p();
+}
+
+ul,
+ol {
+  line-height: 40px;
 }
 
 p,
@@ -216,6 +257,14 @@ nav ul {
     }
   }
 
+  .accordion-open.link-hover {
+    transition: .3s ease all;
+
+    &:hover {
+      color: $dark-cinnamon;
+    }
+  }
+
   .accordion-open {
     padding: 30px;
     border: 2px solid $mild-gray;
@@ -228,19 +277,6 @@ nav ul {
   text-align: center;
 }
 
-.read-more {
-  text-align: center;
-  text-transform: uppercase;
-
-  span {
-    @include btnFlat;
-    color: $dark-gray;
-    text-decoration: none;
-  }
-
-  padding: $lg-spacer 0;
-  width: 100%;
-}
 
 input {
   outline: 0;
@@ -249,7 +285,7 @@ input {
   @include input;
 
   &::placeholder {
-    text-align: center;
+    text-align: left;
     @include fontMontserrat;
     font-size: 18px;
     font-weight: 500;
@@ -288,26 +324,6 @@ input {
   }
 }
 
-button {
-  background: $white;
-  color: $dark-cinnamon;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  i {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 23px;
-  }
-
-  &.flat {
-    @include btnFlat;
-  }
-}
-
 
 .row {
   display: flex;
@@ -333,10 +349,6 @@ button {
   text-transform: uppercase;
 }
 
-button[disabled],
-input[disabled] {
-  pointer-events: none
-}
 
 .error-group {
   background: $white;
@@ -393,4 +405,32 @@ input[disabled] {
       background: $white;
     }
   }
+}
+
+
+
+section.newsletter {
+  position: relative;
+  z-index: 11;
+
+  >* {
+    position: relative;
+    z-index: 11;
+  }
+
+  >.circle-illustration {
+    width: 669px;
+    height: 669px;
+    border: 1px solid $md-gray;
+    border-radius: 50%;
+    position: absolute;
+    right: -334px;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+section.newsletter+section.cta {
+  position: relative;
+  z-index: 11;
 }

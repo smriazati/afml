@@ -5,7 +5,7 @@
         So what's the problem?
       </h1>
       <CompProblemCards />
-      <button class="add-more plain flat">
+      <button class="add-more plain flat no-border">
         <nuxt-link to="/contact"
           >ARE YOU A PLAYER? SUBMIT YOUR OWN “PROBLEM CARD” HERE.</nuxt-link
         >
@@ -185,6 +185,9 @@ export default {
       > *:not(:last-child) {
         @media (min-width: $mobile-bp) {
           margin-right: 40px;
+        }
+        @media (max-width: $mobile-bp) {
+          margin-bottom: 30px;
         }
       }
     }

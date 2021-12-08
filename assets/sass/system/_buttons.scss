@@ -18,12 +18,22 @@
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0em;
-  @include btnTransition();
-  border-bottom: 2px solid transparent;
+
+  span,
+  a {
+    @include btnTransition();
+    border-bottom: 2px solid transparent;
+    color: $dark-gray;
+  }
 
   &:hover {
-    color: $dark-cinnamon;
-    border-bottom: 2px solid $dark-cinnamon;
+
+    span,
+    a {
+      color: $dark-cinnamon;
+      border-bottom: 2px solid $dark-cinnamon;
+
+    }
   }
 }
 

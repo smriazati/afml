@@ -13,7 +13,7 @@
         <p>{{ item.desc }}</p>
       </div>
     </div>
-    <button class="link-hover" @click="flipCard()">
+    <button class="link-hover flat" @click="flipCard()">
       <a-icon type="sync"></a-icon>
       <span class="caption">Flip Card</span>
     </button>
@@ -61,6 +61,7 @@ export default {
   }
   .card-content {
     flex: 2;
+    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
@@ -108,11 +109,27 @@ export default {
     text-align: left;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    color: black;
+    span,
+    a {
+      border-bottom: none;
+    }
     i {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-right: 1ch;
+      transition: 0.3s ease all;
+    }
+    &:hover {
+      color: $dark-cinnamon;
+      span,
+      a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: none;
+      }
     }
   }
 }

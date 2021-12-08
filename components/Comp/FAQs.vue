@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
-.faqs {
+.default-layout .faqs {
   margin-top: 33px;
   margin-bottom: 33px;
   background: $light-gray;
@@ -44,6 +44,7 @@ export default {
 
     .title {
       margin-bottom: 24px;
+      color: $dark-cinnamon;
     }
     h4 i {
       color: $dark-cinnamon;

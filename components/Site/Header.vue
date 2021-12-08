@@ -10,7 +10,7 @@
             <nuxt-link to="/"> <SystemLogo /> </nuxt-link>
           </div>
           <div v-else>
-            <SystemLogoSecondary />
+            <nuxt-link to="/"> <SystemLogoSecondary /></nuxt-link>
           </div>
         </div>
         <div v-if="!isMobile" class="cta">
@@ -110,17 +110,7 @@ export default {
       }
       console.log("mobile nav", mobileNav);
     },
-    closeDropdown() {
-      this.desktopMenu.isDropdownExpanded = false;
-    },
-    toggleDropdown() {
-      this.desktopMenu.isDropdownExpanded =
-        !this.desktopMenu.isDropdownExpanded;
 
-      if (this.desktopMenu.isDropdownExpanded) {
-        this.desktopMenu.menuHeight = this.$refs.dropdownParent.offsetHeight;
-      }
-    },
     toggleMobileMenu() {
       this.mobileMenu.isExpanded = !this.mobileMenu.isExpanded;
     },
@@ -130,8 +120,8 @@ export default {
 
 <style lang="scss">
 .default-layout.index {
-  header.site-header {
-    background: $light-sand;
+  .header-wrapper {
+    background: $light-gray;
   }
 }
 
@@ -225,6 +215,9 @@ header.site-header {
       padding-right: 5px;
     }
     .cta {
+      button {
+        background: transparent;
+      }
       grid-area: cta;
       border-top: 2px solid $indigo;
       border-bottom: 2px solid $indigo;
@@ -266,6 +259,7 @@ header.site-header {
       height: 100%;
       left: 0;
       button {
+        background: transparent;
         position: absolute;
         width: 100%;
         left: 0;
@@ -275,6 +269,7 @@ header.site-header {
         justify-content: flex-end;
         padding-right: 10px;
         padding-top: 5px;
+        color: $indigo;
       }
       ul {
         position: absolute;

@@ -40,6 +40,13 @@ export default {
   background: $white;
   border: 2px solid $indigo;
   color: $indigo;
+  width: 100%;
+  span,
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   &:hover {
     border: 2px solid $dark-cinnamon;
     background: $dark-cinnamon;
@@ -47,15 +54,21 @@ export default {
   }
 
   &:not(.btn-primary-small) {
-    padding: 50px 0;
-    width: 100%;
-    font-size: 36px;
-    line-height: 44px;
+    span,
+    a {
+      padding: 50px 0;
+      width: 100%;
+      font-size: 36px;
+      line-height: 44px;
+    }
   }
   .btn-primary-small {
-    padding: 43px 51px;
-    font-size: 18px;
-    line-height: 22px;
+    span,
+    a {
+      padding: 43px 51px;
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
 
   &.disabled {
@@ -68,10 +81,13 @@ export default {
   }
   @media (max-width: $mobile-bp) {
     &:not(.btn-primary-small) {
-      padding: 27px 0;
-      width: 100%;
-      font-size: 16px;
-      line-height: 20px;
+      span,
+      a {
+        padding: 27px 0;
+        width: 100%;
+        font-size: 16px;
+        line-height: 20px;
+      }
     }
   }
 }

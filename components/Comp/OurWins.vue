@@ -8,7 +8,7 @@
         :item="item"
       />
     </div>
-    <button class="read-more">
+    <button class="read-more plain flat">
       <nuxt-link to="/thelatest">Read more</nuxt-link>
     </button>
   </div>
@@ -38,7 +38,7 @@ export default {
 $container-padding: 40px;
 .our-wins {
   padding: $xl-spacer 0;
-
+  @include mediumContainerPadding;
   .accordion-wrapper {
     margin-top: $lg-spacer;
     .accordion-open {
@@ -122,6 +122,12 @@ $container-padding: 40px;
         }
       }
     }
+  }
+
+  .read-more {
+    text-transform: uppercase;
+    padding: $lg-spacer 0;
+    width: 100%;
   }
 }
 .accordion-item-expanded + .accordion-item-expanded {

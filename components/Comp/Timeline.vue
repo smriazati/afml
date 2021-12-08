@@ -1,6 +1,12 @@
 <template>
   <div class="timeline-wrapper">
-    <CompTimelineItem v-for="item in items" :key="item._id" :item="item" />
+    <CompTimelineItem
+      v-for="(item, index) in items"
+      :key="item._id"
+      :item="item"
+      :index="index"
+      @on-open="closeOthers(i)"
+    />
   </div>
 </template>
 
@@ -18,6 +24,11 @@ export default {
     this.items = await this.$sanity.fetch(query);
   },
   data: () => ({ items: "" }),
+  methods: {
+    closeOthers(i) {
+      console.log(i);
+    },
+  },
 };
 </script>
 

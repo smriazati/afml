@@ -81,6 +81,7 @@ export default {
 footer.site-footer {
   color: $white;
   position: relative;
+  z-index: 30;
   margin-top: 102px;
   @media (max-width: $collapse-bp) {
     margin-top: 60px;
@@ -94,7 +95,7 @@ footer.site-footer {
 
     padding-top: 102px;
     @media (max-width: $collapse-bp) {
-      padding-top: 60px;
+      padding-top: 0px;
     }
     width: 100%;
     height: 100%;
@@ -196,13 +197,13 @@ footer.site-footer {
 
     // mobile
     @media (max-width: $mobile-bp) {
-      grid-template-rows: 1fr min-content min-content;
+      grid-template-rows: 140px 1fr min-content min-content;
       grid-row-gap: 5px;
       max-width: 90%;
       margin: 0 auto;
       .logo {
         grid-column: 4 / span 4;
-        grid-row: 1 / 2;
+        grid-row: 2 / 3;
         padding: 15px;
         place-self: center;
       }
@@ -217,18 +218,18 @@ footer.site-footer {
 
       .main-nav {
         grid-column: 1 / span 2;
-        grid-row: 1 / 2;
+        grid-row: 2 / 3;
       }
 
       .secondary-nav {
         grid-column: span 2 / 11;
-        grid-row: 1 / 2;
+        grid-row: 2 / 3;
         text-align: right;
       }
 
       .social-menu {
         grid-column: span 10;
-        grid-row: 2 / 3;
+        grid-row: 3 / 4;
         place-self: center;
         i {
           padding: 5px;
@@ -238,7 +239,7 @@ footer.site-footer {
       .legal {
         padding-top: 10px;
         grid-column: span 10;
-        grid-row: 3 / 4;
+        grid-row: 4 / 5;
         text-align: center;
       }
     }
