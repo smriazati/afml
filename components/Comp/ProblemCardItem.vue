@@ -2,9 +2,8 @@
   <div
     class="link-hover problem-card-item card-item"
     :class="facingFront ? 'facing-front' : 'facing-back'"
-    @click="flipCard()"
   >
-    <div class="card-content">
+    <div class="card-content" @click="flipCard()">
       <div class="card-front">
         <h2>{{ item.title }}</h2>
       </div>
@@ -110,10 +109,12 @@ export default {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    color: black;
+    color: $indigo;
     span,
     a {
       border-bottom: none;
+      padding: 0;
+      color: $indigo;
     }
     i {
       display: flex;

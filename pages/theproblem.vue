@@ -1,7 +1,7 @@
 <template>
   <div class="the-problem page">
     <section class="problem-cards">
-      <h1 ref="headline" class="headline section-title">
+      <h1 ref="headline" class="headline section-title centered">
         So what's the problem?
       </h1>
       <CompProblemCards />
@@ -129,7 +129,7 @@ export default {
         line-height: 104px;
         letter-spacing: 0em;
         color: $dark-cinnamon;
-        text-align: right;
+        text-align: center;
 
         padding-bottom: $lg-spacer;
         @media (max-width: $mobile-bp) {
