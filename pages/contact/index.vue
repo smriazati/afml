@@ -145,6 +145,9 @@ export default {
         max-width: 1142px;
         margin: 0 auto;
         margin-top: 34px;
+        p + p {
+          margin-top: 0;
+        }
       }
     }
   }

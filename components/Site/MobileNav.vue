@@ -4,18 +4,20 @@
       <li><nuxt-link to="/theproblem">The Problem</nuxt-link></li>
       <li><nuxt-link to="/thelatest">The Latest</nuxt-link></li>
       <li><nuxt-link to="/about">Who We Are</nuxt-link></li>
-      <li><nuxt-link to="/getinvolved">Get Involved</nuxt-link></li>
-    </ul>
-    <ul class="secondary-nav">
-      <li>
-        <a
-          href="https://www.bonfire.com/store/advocates-for-minor-leaguers/"
-          target="_blank"
-          >Shop</a
-        >
+      <li class="skip">
+        <span>Get Involved</span>
+        <ul class="secondary-nav">
+          <li>
+            <a
+              href="https://www.bonfire.com/store/advocates-for-minor-leaguers/"
+              target="_blank"
+              >Shop</a
+            >
+          </li>
+          <li><nuxt-link to="/donate">Give</nuxt-link></li>
+          <li><nuxt-link to="/contact">Contact Us</nuxt-link></li>
+        </ul>
       </li>
-      <li><nuxt-link to="/give">Give</nuxt-link></li>
-      <li><nuxt-link to="/contact">Contact Us</nuxt-link></li>
     </ul>
     <div class="social-menu">
       <SystemSocialMenu />
@@ -34,7 +36,7 @@ export default {
       if (!parent) {
         return;
       }
-      const links = Array.from(parent.querySelectorAll("li"));
+      const links = Array.from(parent.querySelectorAll("li:not(.skip)"));
       if (!links) {
         return;
       }
@@ -49,3 +51,4 @@ export default {
   },
 };
 </script>
+

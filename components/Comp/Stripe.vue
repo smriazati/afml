@@ -1,5 +1,6 @@
 <template>
   <div class="comp-stripe-wrapper">
+    <div ref="card"></div>
     <form v-if="!donationSuccess">
       <div class="donation-type flex-row flex-row-mobile">
         <button
@@ -25,14 +26,14 @@
           <span>${{ item }}</span>
         </button>
       </div>
-      <div class="donation-custom-amount flex-row">
+      <!-- <div class="donation-custom-amount flex-row">
         <input
           class="btn-light btn-padding"
           ref="aCustom"
           v-model="customAmount"
           placeholder="Enter Custom Amount"
         />
-      </div>
+      </div> -->
       <div class="opt-in flex-row">
         <div
           class="custom-checkbox-input link-hover"
@@ -55,7 +56,7 @@
       <div class="submit flex-row">
         <button
           class="submit btn-orange"
-          ref="donateButton"
+          ref="donateButn"
           type="button"
           :class="isFormValid ? '' : 'disabled'"
           @click="checkDonationSubmission()"
@@ -63,17 +64,20 @@
           <span>Donate</span>
         </button>
       </div>
-      <div v-if="error" class="flex-row error">
+      <div v-if="error" ref="errorMsg" class="flex-row error">
         {{ error }}
       </div>
     </form>
-    <div v-else class="donation-success">
-      <p v-if="donationAmount">
-        Your {{ donationType }} donation of ${{ donationAmount }} is processing.
-      </p>
-      <p v-if="customAmount">
-        Your {{ donationType }} donation of ${{ customAmount }} is processing.
-      </p>
+    <div v-else>
+      <div class="flex-col text-wrapper">
+        <h2 class="h3">Thank you for your donation!</h2>
+        <p>
+          In case your browser did not open the checkout page in a new tab,
+          <a :href="rewardLink" target="_blank"
+            >click here to complete your donation.</a
+          >
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -93,6 +97,91 @@ export default {
       donationTypes: ["Monthly", "One Time"],
       error: null,
       donationSuccess: false,
+      rewardLink: null,
+      donationsWithoutReward: [
+        {
+          type: "One Time",
+          amount: 10,
+          url: "https://buy.stripe.com/9AQ7tO7D0fINczm4gg",
+        },
+        {
+          type: "One Time",
+          amount: 25,
+          url: "https://buy.stripe.com/28og0ke1odAF7f29AB",
+        },
+        {
+          type: "One Time",
+          amount: 50,
+          url: "https://buy.stripe.com/7sI6pKg9wcwB42QdQS",
+        },
+        {
+          type: "One Time",
+          amount: 100,
+          url: "https://buy.stripe.com/cN2aG06yWdAFaredQT",
+        },
+        {
+          type: "Monthly",
+          amount: 10,
+          url: "https://buy.stripe.com/4gwdScbTg68dgPCbIP",
+        },
+        {
+          type: "Monthly",
+          amount: 25,
+          url: "https://buy.stripe.com/5kAeWg1eCdAF56U4gm",
+        },
+        {
+          type: "Monthly",
+          amount: 50,
+          url: "https://buy.stripe.com/14k8xSaPcfINczmfZ3",
+        },
+        {
+          type: "Monthly",
+          amount: 100,
+          url: "https://buy.stripe.com/4gw9BW2iGgMR8j6cMQ",
+        },
+      ],
+      donationsWithReward: [
+        {
+          type: "One Time",
+          amount: 10,
+          url: "https://buy.stripe.com/cN2cO87D08gl6aYeV4",
+        },
+        {
+          type: "One Time",
+          amount: 25,
+          url: "https://buy.stripe.com/cN25lG4qOdAF42Q4gr",
+        },
+        {
+          type: "One Time",
+          amount: 50,
+          url: "https://buy.stripe.com/9AQ5lGg9w68dfLy7sB",
+        },
+        {
+          type: "One Time",
+          amount: 100,
+          url: "https://buy.stripe.com/cN229u0ayfIN7f25ks",
+        },
+        {
+          type: "Monthly",
+          amount: 10,
+          url: "https://buy.stripe.com/cN24hCe1obsx8j6bIW",
+        },
+        {
+          type: "Monthly",
+          amount: 25,
+          url: "https://buy.stripe.com/00gcO8e1o9kp1UIcN1",
+        },
+        {
+          type: "Monthly",
+          amount: 50,
+          url: "https://buy.stripe.com/cN215q4qO68d1UI28l",
+        },
+        {
+          type: "Monthly",
+          amount: 100,
+          url: "https://buy.stripe.com/cN25lG4qOdAF42Q4gr",
+        },
+      ],
     };
   },
   watch: {
@@ -119,32 +208,48 @@ export default {
       this.donationWithReward = !this.donationWithReward;
     },
     checkDonationSubmission() {
-      if (this.customAmount) {
-        // check custom amount
-        if (isNaN(this.customAmount)) {
-          this.error =
-            "Please enter a number without decimals in the custom amount field";
-          return;
-        }
-        // otherwise
-        this.submitDonation(
-          this.donationType,
-          this.customAmount,
-          this.donationWithReward
-        );
-      } else {
-        // if not a custom amoutn, then just submit it
-        this.submitDonation(
-          this.donationType,
-          this.donationAmount,
-          this.donationWithReward
-        );
-      }
+      // if (this.customAmount) {
+      //   // check custom amount
+      //   if (isNaN(this.customAmount)) {
+      //     this.error =
+      //       "Please enter a number without decimals in the custom amount field";
+      //     return;
+      //   }
+      //   // otherwise
+      //   this.submitDonation(
+      //     this.donationType,
+      //     this.customAmount,
+      //     this.donationWithReward
+      //   );
+      // } else {
+      // if not a custom amoutn, then just submit it
+      this.submitDonation(
+        this.donationType,
+        this.donationAmount,
+        this.donationWithReward
+      );
+      // }
     },
     submitDonation(type, amount, reward) {
       // stripe stuff goes here
+      // console.log(type, amount, reward);
+      let link;
+      if (reward) {
+        link = this.donationsWithReward.filter(
+          (item) => item.type === type && item.amount == amount
+        )[0];
+      } else {
+        link = this.donationsWithoutReward.filter(
+          (item) => item.type === type && item.amount == amount
+        )[0];
+      }
+      // console.log(link.url);
+      if (!link.url) {
+        return;
+      }
       this.donationSuccess = true;
-      console.log(type, amount, reward);
+      this.rewardLink = link.url;
+      window.open(link.url, "_blank");
     },
   },
   computed: {

@@ -408,9 +408,14 @@ header.site-header {
             line-height: 52px;
             letter-spacing: 0em;
           }
-          border-bottom: 2px solid $indigo;
+          > li:last-child {
+            border-top: 2px solid $indigo;
+            margin-top: 11px;
+            padding-top: 11px;
+          }
         }
         .secondary-nav {
+          padding-left: 0;
           li {
             @include fontMontserrat;
             font-size: 18px;

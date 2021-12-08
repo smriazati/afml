@@ -69,11 +69,16 @@ export default {
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/style-resources',
+    '@nuxtjs/style-resources'
   ],
+  // stripe: {
+  //   publishableKey: process.env.STRIPEKEY,
+  // },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   generate: { fallback: '404.html' },
-
+  // env: {
+  //   STRIPEKEY: process.env.STRIPEKEY,
+  // },
   build: {
     babel: {
       plugins: [

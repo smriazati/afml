@@ -4,7 +4,7 @@
       <SystemBtnPrimary dest="/donate" msg="Donate" />
     </div>
     <div class="">
-      <SystemBtnPrimary dest="/contact-us" msg="Contact Us" />
+      <SystemBtnPrimary dest="/contact" msg="Contact Us" />
     </div>
   </div>
 </template>

@@ -86,6 +86,10 @@ export default {
   }
   .card-back {
     transform: rotateY(180deg);
+    @media (min-width: $mobile-bp) {
+      height: 465px;
+      overflow-y: scroll;
+    }
     h2 {
       background: $indigo;
       color: $white;
