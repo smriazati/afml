@@ -62,6 +62,33 @@ export default {
 
 
 <style lang="scss">
+$lineAnimDuration: 3s;
+
+@keyframes fadeInBtn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes animateInCircle {
+  from {
+    clip-path: polygon(100% 301px, 100% 0px, 100% 100%, 50% 100%);
+  }
+  to {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+  }
+}
+
+@keyframes animateInGrayCircle {
+  from {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  }
+  to {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
 .home-banner {
   overflow: hidden;
   background: $light-gray;
@@ -77,13 +104,16 @@ export default {
   @media (max-width: $collapse-bp) {
     padding: 60px 0;
   }
+
   .circle-trail {
     position: absolute;
     border: 3px dashed $dark-cinnamon;
     border-radius: 50%;
     width: 100%;
     height: 100%;
-    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    clip-path: polygon(100% 301px, 100% 0px, 100% 100%, 50% 100%);
+    animation: animateInCircle $lineAnimDuration ease-in-out forwards;
+    // clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
   }
   h2 {
     position: relative;
@@ -117,6 +147,7 @@ export default {
       }
     }
   }
+
   .button-wrapper {
     @media (min-width: $collapse-bp) {
       padding-left: 32px;
@@ -126,6 +157,9 @@ export default {
       padding-left: 10%;
     }
     position: relative;
+
+    opacity: 0;
+    animation: fadeInBtn 0.5s $lineAnimDuration ease-in-out forwards;
     button {
       background: $light-gray;
     }
@@ -139,7 +173,8 @@ export default {
 
     border: 1px solid $md-gray;
     border-radius: 50%;
-
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    animation: animateInGrayCircle $lineAnimDuration ease-in-out forwards;
     @media (max-width: $collapse-bp) {
       width: 602px;
       height: 602px;
