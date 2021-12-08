@@ -3,19 +3,19 @@
     <div class="wrapper">
       <div class="fact-list">
         <div class="fact-list-item">
-          <h3>$41.43</h3>
+          <h3>${{ firstStat }}</h3>
           <p>how much a Single-A Player makes a game</p>
         </div>
         <div class="fact-list-item">
-          <h3>$12,000</h3>
+          <h3>${{ secondStat }}</h3>
           <p>the median salary for a MiLB player</p>
         </div>
         <div class="fact-list-item">
-          <h3>$12,800</h3>
+          <h3>${{ thirdStat }}</h3>
           <p>Federal Poverty Level for an Individual in the U.S.</p>
         </div>
         <div class="fact-list-item">
-          <h3>$10.7 Billion</h3>
+          <h3>${{ fourthStat }} Billion</h3>
           <p>is what the MLB’s Franchise made in 2019</p>
         </div>
       </div>
@@ -30,7 +30,71 @@ export default {
       this.drawCurve();
     });
   },
+  data() {
+    return {
+      endStats: [41.43, 12000, 12800, 10.7],
+      firstStat: 0,
+      secondStat: 0,
+      thirdStat: 0,
+      fourthStat: 0,
+      t1: setInterval(() => {
+        this.startCounter1();
+      }, 30),
+      t2: setInterval(() => {
+        this.startCounter2();
+      }, 3),
+      t3: setInterval(() => {
+        this.startCounter3();
+      }, 3),
+      t4: setInterval(() => {
+        this.startCounter4();
+      }, 30),
+    };
+  },
+  mounted() {
+    this.startAllCounters();
+  },
   methods: {
+    startAllCounters() {
+      this.startCounter1();
+      this.startCounter2();
+      this.startCounter3();
+      this.startCounter4();
+    },
+    startCounter1() {
+      if (this.firstStat > this.endStats[0]) {
+        clearInterval(this.t1);
+        this.firstStat = this.endStats[0];
+      } else {
+        this.firstStat = parseFloat((this.firstStat + 0.21).toFixed(2));
+      }
+    },
+    startCounter2() {
+      if (this.secondStat > this.endStats[1]) {
+        clearInterval(this.t2);
+        let dollarUSLocale = Intl.NumberFormat("en-US");
+        this.secondStat = dollarUSLocale.format(this.endStats[1]);
+      } else {
+        this.secondStat = parseInt(this.secondStat + 10);
+      }
+    },
+    startCounter3() {
+      if (this.thirdStat > this.endStats[2]) {
+        clearInterval(this.t3);
+        let dollarUSLocale = Intl.NumberFormat("en-US");
+        this.thirdStat = dollarUSLocale.format(this.endStats[2]);
+      } else {
+        this.thirdStat = parseInt(this.thirdStat + 10);
+      }
+    },
+    startCounter4() {
+      if (this.fourthStat > this.endStats[3]) {
+        clearInterval(this.t4);
+        this.fourthStat = this.endStats[3];
+      } else {
+        this.fourthStat = parseFloat((this.fourthStat + 0.1).toFixed(1));
+      }
+    },
     drawCurve() {
       const ref = this.$refs.circleTrail;
       if (!ref) {
