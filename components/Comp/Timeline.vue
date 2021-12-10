@@ -5,7 +5,7 @@
       :key="item._id"
       :item="item"
       :index="index"
-      @on-open="closeOthers(i)"
+      @on-open="closeOthers(index)"
     />
   </div>
 </template>

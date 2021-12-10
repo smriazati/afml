@@ -1,5 +1,5 @@
 <template>
-  <div class="our-wins">
+  <div class="our-wins flex-col align-center">
     <h3 class="h1 section-title">Our Wins</h3>
     <div class="accordion-wrapper">
       <CompOurWinsAccordionItem
@@ -8,9 +8,11 @@
         :item="item"
       />
     </div>
-    <button class="read-more plain flat">
-      <nuxt-link to="/thelatest">Read more</nuxt-link>
-    </button>
+    <div class="btn-container center">
+      <button class="read-more plain flat">
+        <nuxt-link to="/thelatest">Read more</nuxt-link>
+      </button>
+    </div>
   </div>
 </template>
 <script>

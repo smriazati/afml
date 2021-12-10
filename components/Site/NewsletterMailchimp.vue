@@ -10,7 +10,7 @@
       target="_blank"
       novalidate
     >
-      <div id="mc_embed_signup_scroll flex-row">
+      <div id="mc_embed_signup_scroll" class="flex-row">
         <div class="mc-field-group">
           <label for="mce-EMAIL" class="visually-hidden">Email Address </label>
           <input

@@ -157,6 +157,7 @@ header.site-header {
   a {
     text-decoration: none;
     color: inherit;
+    transition: 0.3s ease all;
   }
 
   .donate {
@@ -272,16 +273,20 @@ header.site-header {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding-right: 8px;
+        padding-right: 15px;
         // padding-top: 5px;
         color: $indigo;
         span.icon {
           padding: 0;
         }
+        i {
+          font-size: 14px;
+        }
       }
       ul {
         position: absolute;
-        // display: none;
+        width: calc(100% + 4px);
+        left: -2px;
         width: 100%;
         flex: 1;
         flex-direction: column;
@@ -297,6 +302,10 @@ header.site-header {
           width: 100%;
           background: white;
           border-bottom: 2px solid $indigo;
+          &:hover {
+            background: $indigo;
+            color: $white;
+          }
         }
       }
     }

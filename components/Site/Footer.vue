@@ -115,6 +115,10 @@ footer.site-footer {
     a {
       color: inherit;
       text-decoration: none;
+      transition: 0.3s ease all;
+      &:hover {
+        color: $cinnamon;
+      }
     }
     nav ul {
       list-style: none;

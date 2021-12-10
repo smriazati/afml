@@ -12,10 +12,7 @@
         <SiteNewsletterMailchimp />
       </div>
     </div>
-    <div
-      :class="col ? 'center-text' : ''"
-      class="disclaimer medium-container-padding"
-    >
+    <div :class="col ? 'center-text' : ''" class="disclaimer">
       <p class="caption">
         By providing your email address you consent to receive periodic updates
         from Advocates for Minor Leaguers.
