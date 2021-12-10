@@ -257,6 +257,19 @@ header.site-header {
           position: relative;
           flex: 1;
         }
+        i {
+          transition: 0.3s ease all;
+        }
+        &:hover {
+          background: $indigo;
+          > a,
+          > span {
+            color: $white;
+          }
+          i {
+            color: $white;
+          }
+        }
       }
     }
     .dropdown {
@@ -296,11 +309,13 @@ header.site-header {
           &:first-child {
             border-top: 2px solid $indigo;
           }
+          color: $indigo;
+          background: $white;
           display: flex;
           justify-content: center;
           align-items: center;
           width: 100%;
-          background: white;
+          // background: white;
           border-bottom: 2px solid $indigo;
           &:hover {
             background: $indigo;
