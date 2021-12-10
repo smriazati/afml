@@ -132,6 +132,7 @@ export default {
         transition: 0.3s ease all;
       }
       input.transparent {
+        opacity: 0;
         background: transparent;
       }
       input:hover {
