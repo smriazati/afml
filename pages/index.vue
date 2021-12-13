@@ -90,6 +90,9 @@ export default {
       &.newsletter {
         padding: $xxl-spacer 0;
         // overflow-x: hidden;
+        @media (max-width: $collapse-bp) {
+          padding: $lg-spacer 0;
+        }
         > * {
           max-width: 1142px;
           margin: 0 auto;

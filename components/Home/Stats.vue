@@ -121,6 +121,10 @@ export default {
     flex: 0 0 25%;
     padding-top: 90px;
     padding-bottom: 90px;
+    @media (max-width: $collapse-bp) {
+      padding-top: 45px;
+      padding-bottom: 45px;
+    }
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -137,6 +141,15 @@ export default {
     &:not(:last-child) {
       border-right: 2px solid $mild-gray;
     }
+    @media (max-width: $collapse-bp) {
+      &:not(:first-child) {
+        border-top: 0;
+      }
+      &:first-child {
+        margin-top: $sm-spacer;
+      }
+      border-left: 2px solid $mild-gray;
+    }
   }
   h3 {
     @include fontRobotoCondensed;
@@ -144,6 +157,10 @@ export default {
     line-height: 70px;
     line-height: 104px;
     letter-spacing: 0em;
+    @media (max-width: $collapse-bp) {
+      font-size: 60px;
+      line-height: 55px;
+    }
   }
   p {
     color: $dark-gray;

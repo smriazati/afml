@@ -291,21 +291,6 @@ nav ul {
 }
 
 
-input {
-  outline: 0;
-  border: 0;
-  border-radius: 0;
-  @include input;
-
-  &::placeholder {
-    text-align: left;
-    @include fontMontserrat;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 16px;
-    color: $dark-gray;
-  }
-}
 
 .form-group {
   display: flex;
@@ -313,8 +298,12 @@ input {
   justify-content: flex-start;
 }
 
+
 textarea,
 input {
+  border: 0;
+  border-radius: 0;
+
   @include input;
   outline: none;
   display: flex;
@@ -334,6 +323,11 @@ input {
     font-weight: 500;
     line-height: 30px;
     letter-spacing: 0em;
+
+    @media (max-width: $collapse-bp) {
+      font-size: 12px;
+      line-height: 18px;
+    }
   }
 }
 

@@ -1,3 +1,5 @@
+$this-collapse-bp: 1080px;
+
 @mixin fontRobotoCondensed {
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
 }
@@ -97,11 +99,13 @@
 
 @mixin input {
   @include fontMontserrat();
+  max-width: 100%;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 22px;
   letter-spacing: 0em;
+
 }
 
 @mixin caption {
