@@ -380,6 +380,7 @@ header.site-header {
       height: 100vh;
       background: white;
       position: fixed;
+      z-index: 99;
       overflow: hidden;
       margin-top: 0;
 

@@ -72,6 +72,12 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      &:first-child {
+        @media (max-width: $collapse-bp) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
     }
     .text {
       .name {
@@ -86,8 +92,10 @@ export default {
           flex: 1;
         }
         text-align: left;
-        margin-left: 10px;
-        margin-left: 1ch;
+        @media (min-width: $collapse-bp) {
+          margin-left: 10px;
+          margin-left: 1ch;
+        }
         @include fontMontserrat;
         font-size: 20px;
         font-weight: 500;
@@ -146,6 +154,11 @@ export default {
           }
         }
       }
+    }
+  }
+  &:last-child {
+    .accordion-collapse-area {
+      border-bottom: 2px solid $mild-gray;
     }
   }
 }

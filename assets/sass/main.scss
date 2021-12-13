@@ -307,6 +307,8 @@ input {
   @include input;
   outline: none;
   display: flex;
+  width: 100%;
+  max-width: 100%;
   min-height: 100%;
   flex: 1;
   border: 0;
@@ -325,6 +327,7 @@ input {
     letter-spacing: 0em;
 
     @media (max-width: $collapse-bp) {
+      text-align: center;
       font-size: 12px;
       line-height: 18px;
     }

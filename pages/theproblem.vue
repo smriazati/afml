@@ -126,13 +126,16 @@ export default {
         @include fontRobotoCondensed;
         font-size: 89px;
         font-weight: 700;
+
         line-height: 104px;
         letter-spacing: 0em;
         color: $dark-cinnamon;
         text-align: center;
 
         padding-bottom: $lg-spacer;
-        @media (max-width: $mobile-bp) {
+        @media (max-width: $collapse-bp) {
+          font-size: 50px;
+          line-height: 56px;
           padding-bottom: $md-spacer;
         }
       }
@@ -158,12 +161,17 @@ export default {
     max-width: 1142px;
     margin-left: auto;
     margin-right: auto;
+    padding-top: $xxl-spacer;
+
     @media (max-width: 1142px) {
       padding-left: 18px;
       padding-right: 18px;
     }
 
-    padding-top: $xxl-spacer;
+    @media (max-width: $collapse-bp) {
+      padding-top: $lg-spacer;
+    }
+
     .section-title {
       padding-bottom: $md-spacer;
       border-bottom: 1px solid $mild-gray;
@@ -176,10 +184,18 @@ export default {
   section.problem-cta {
     @include containerWidth;
     padding: $xxl-spacer 0;
+    @media (max-width: $collapse-bp) {
+      padding: $lg-spacer 15px;
+    }
     .section-title {
       margin-bottom: $lg-spacer;
       font-size: 72px;
       line-height: 76px;
+      @media (max-width: $collapse-bp) {
+        font-size: 50px;
+        line-height: 56px;
+        margin-bottom: $md-spacer;
+      }
     }
     .row {
       > *:not(:last-child) {

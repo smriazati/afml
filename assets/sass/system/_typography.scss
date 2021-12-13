@@ -32,15 +32,25 @@ $this-collapse-bp: 1080px;
   font-weight: 400;
   line-height: 90px;
   letter-spacing: 0em;
+
+  @media (max-width: $this-collapse-bp) {
+    font-size: 50px;
+    line-height: 62px;
+  }
 }
 
 @mixin h1 {
   //styleName: Heading 1;
   @include fontEBGaramond();
   font-size: 72px;
-  font-weight: 400;
   line-height: 90px;
+  font-weight: 400;
   letter-spacing: 0em;
+
+  @media (max-width: $this-collapse-bp) {
+    font-size: 50px;
+    line-height: 62px;
+  }
 }
 
 @mixin h2 {

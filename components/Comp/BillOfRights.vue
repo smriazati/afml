@@ -39,6 +39,9 @@ export default {
     > *:not(:last-child) {
       margin-bottom: $sm-spacer;
     }
+    @media (max-width: $collapse-bp) {
+      padding: 0 15px;
+    }
     ul,
     ol {
       @include fontMontserrat;

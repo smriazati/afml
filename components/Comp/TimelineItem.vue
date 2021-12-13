@@ -107,14 +107,23 @@ export default {
     border: 1px solid $mild-gray;
   }
   @media (max-width: 1142px) {
-    max-width: 80%;
+    max-width: 100%;
     margin-right: auto;
+  }
+  @media (max-width: $collapse-bp) {
+    margin-left: 0;
+    margin-bottom: $md-spacer;
   }
 
   .title {
     font-size: 32px;
     line-height: 38px;
     margin-bottom: $sm-spacer;
+    @media (max-width: $collapse-bp) {
+      font-size: 24px;
+      line-height: 32px;
+      margin-bottom: $xs-spacer;
+    }
   }
   .year {
     margin-bottom: $sm-spacer;

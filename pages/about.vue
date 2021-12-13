@@ -76,7 +76,7 @@ export default {
 .page.about {
   .intro {
     @include containerWidth;
-
+    overflow: hidden;
     margin-top: $lg-spacer;
     margin-bottom: $xl-spacer;
     @media (max-width: $mobile-bp) {
@@ -149,6 +149,9 @@ export default {
       position: absolute;
       top: -30px;
       right: -30px;
+      @media (max-width: $collapse-bp) {
+        right: -60px;
+      }
       width: 10px;
       // height: 300%;
       height: 0;

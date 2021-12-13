@@ -108,6 +108,9 @@ export default {
 
 <style lang="scss">
 .the-latest {
+  @media (max-width: $collapse-bp) {
+    padding: 0 15px;
+  }
   .section-title {
     margin-top: $lg-spacer;
     margin-bottom: $md-spacer;
@@ -118,6 +121,9 @@ export default {
     max-width: 1375px;
     overflow: hidden;
     margin: 0 auto;
+    // .masonry-item {
+    //   background: $sand;
+    // }
   }
   .pagination {
     display: flex;
@@ -125,6 +131,10 @@ export default {
     justify-self: center;
     align-items: center;
     text-align: center;
+    button {
+      margin-left: auto;
+      margin-right: auto;
+    }
     p {
       padding-top: 80px;
       display: block;

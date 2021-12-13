@@ -83,6 +83,13 @@ export default {
 
   .card-front {
     padding: 40px;
+    @media (max-width: $collapse-bp) {
+      padding: 15px;
+      h2 {
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
   }
   .card-back {
     transform: rotateY(180deg);
@@ -94,11 +101,21 @@ export default {
       background: $indigo;
       color: $white;
       padding: 40px;
+      @media (max-width: $collapse-bp) {
+        padding: 15px;
+      }
       font-size: 32px;
       line-height: 37px;
+      @media (max-width: $collapse-bp) {
+        font-size: 24px;
+        line-height: 30px;
+      }
     }
     p {
       padding: 40px;
+      @media (max-width: $collapse-bp) {
+        padding: 15px;
+      }
       padding-top: 26px;
       @include fontMontserrat;
       font-size: 20px;

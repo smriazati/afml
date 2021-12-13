@@ -72,12 +72,21 @@ export default {
     padding-bottom: $sm-spacer;
     margin-top: $md-spacer;
     margin-bottom: $xxl-spacer;
+    @media (max-width: $collapse-bp) {
+      margin-top: $sm-spacer;
+      margin-bottom: $lg-spacer;
+    }
   }
   section.newsletter {
-    max-width: 83%;
+    @media (min-width: $collapse-bp) {
+      max-width: 83%;
+    }
     margin-left: auto;
     margin-right: auto;
     margin-bottom: $xxl-spacer;
+    @media (max-width: $collapse-bp) {
+      margin-bottom: $lg-spacer;
+    }
   }
 }
 </style>
