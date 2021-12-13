@@ -1,7 +1,7 @@
 <template>
   <div class="default-layout" :class="thisRoute">
     <SiteHeader />
-    <nuxt class="wrapper" />
+    <nuxt :key="$route.fullPath" class="wrapper" />
     <SiteFooter />
   </div>
 </template>
