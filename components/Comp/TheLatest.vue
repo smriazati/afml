@@ -46,6 +46,7 @@ export default {
     }
     this.fetches = this.fetches + 1;
   },
+  fetchOnServer: false,
   components: { VueMasonryWall },
   data: () => ({
     newsItems: [],

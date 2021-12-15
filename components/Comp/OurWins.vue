@@ -18,19 +18,13 @@
 <script>
 import { groq } from "@nuxtjs/sanity";
 
-const query = groq`*[_type == "newsItem" && article.featured == true ]| order(date desc)[0...5]{
-  date,
-  headline,
-  "article": {
-    "byline": article.byline,
-  "link": article.link,
-  "excerpt": article.excerpt,
-}}`;
+const newsQuery = groq`*[_type == "newsItem" && article.featured == true ]| order(date desc)[0...5]{date,headline,"article": {"byline": article.byline,"link": article.link,"excerpt": article.excerpt}}`;
 
 export default {
   async fetch() {
-    this.newsItems = await this.$sanity.fetch(query);
+    this.newsItems = await this.$sanity.fetch(newsQuery);
   },
+  fetchOnServer: false,
   data: () => ({ newsItems: "" }),
 };
 </script>

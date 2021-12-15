@@ -1,10 +1,11 @@
 <template>
   <div class="timeline-wrapper">
     <CompTimelineItem
-      v-for="(item, index) in items"
+      v-for="(item, index) in tlItems"
       :key="item._id"
       :item="item"
       :index="index"
+      :ref="`item-${index}`"
       @on-open="closeOthers(index)"
     />
   </div>
@@ -12,21 +13,22 @@
 
 <script>
 import { groq } from "@nuxtjs/sanity";
-
-const query = groq`*[_type == "timeline"] | order(date asc){
+const tlQuery = groq`*[_type == "timeline"] | order(date asc){
   title,
   date,
   desc
 }`;
-
 export default {
   async fetch() {
-    this.items = await this.$sanity.fetch(query);
+    this.tlItems = await this.$sanity.fetch(tlQuery);
   },
-  data: () => ({ items: "" }),
+  fetchOnServer: false,
+  data: () => ({ tlItems: "" }),
   methods: {
     closeOthers(i) {
       console.log(i);
+      const items = this.tlItems;
+      items.forEach(item);
     },
   },
 };

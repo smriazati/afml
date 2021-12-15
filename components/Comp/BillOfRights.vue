@@ -2,22 +2,19 @@
   <div class="bill-of-rights-wrapper">
     <div class="bill-of-rights-content">
       <h2 class="headline">Bill of Rights</h2>
-      <SanityContent :blocks="items.billofrights" />
+      <SanityContent :blocks="borItems.billofrights" />
     </div>
   </div>
 </template>
 <script>
 import { groq } from "@nuxtjs/sanity";
-
-const query = groq`*[_type == "siteContent"][0]{
-  billofrights
-}`;
-
+const borQuery = groq`*[_type == "siteContent"][0]{billofrights}`;
 export default {
   async fetch() {
-    this.items = await this.$sanity.fetch(query);
+    this.borItems = await this.$sanity.fetch(borQuery);
   },
-  data: () => ({ items: "" }),
+  fetchOnServer: false,
+  data: () => ({ borItems: "" }),
 };
 </script>
 

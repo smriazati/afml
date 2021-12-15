@@ -21,14 +21,17 @@
         </span>
         <span class="icon"><a-icon type="down"></a-icon></span>
       </h3>
-      <div v-if="item.img" class="row">
-        <figure v-if="item.img.asset">
-          <SanityImage
-            :asset-id="item.img.asset._ref"
-            auto="format"
-            :alt="item.img.alt"
-          />
-        </figure>
+      <div class="row">
+        <div class="image-wrapper" v-if="item.img">
+          <figure v-if="item.img.asset">
+            <SanityImage
+              :asset-id="item.img.asset._ref"
+              auto="format"
+              :alt="item.img.alt"
+            />
+          </figure>
+        </div>
+
         <div class="bio" v-if="item.bio">
           <p class="small">{{ item.bio }}</p>
         </div>
@@ -127,7 +130,7 @@ export default {
     }
     .row {
       padding: 55px 0;
-      figure {
+      .image-wrapper {
         @media (min-width: $mobile-bp) {
           flex: 0 0 40%;
         }

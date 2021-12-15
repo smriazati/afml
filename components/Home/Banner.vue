@@ -30,6 +30,11 @@ export default {
       this.drawCurve();
     });
   },
+  unmounted() {
+    window.removeEventListener("resize", () => {
+      this.drawCurve();
+    });
+  },
   data() {
     return {
       refRight: null,

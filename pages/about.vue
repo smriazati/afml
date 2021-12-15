@@ -4,8 +4,8 @@
       <div class="line-animation" ref="lineAnim"></div>
       <div class="text-wrapper">
         <h1 class="headline section-title">About</h1>
-        <div v-if="content" class="text">
-          <p>{{ content.about }}</p>
+        <div v-if="aboutContent" class="text">
+          <p>{{ aboutContent.about }}</p>
         </div>
       </div>
     </section>
@@ -27,40 +27,18 @@
 import { groq } from "@nuxtjs/sanity";
 
 export default {
-  async asyncData({ $sanity, store, app }) {
+  async asyncData({ $sanity, app }) {
     const slug = "about";
 
-    // get page content
     const query1 = groq`*[_type == "siteContent"]{${slug}}`;
-    const content = await $sanity.fetch(query1).then((res) => res[0]);
+    const aboutContent = await $sanity.fetch(query1).then((res) => res[0]);
 
-    // not working as expected
-    app.$getPageMetadata(slug);
-    app.$getSiteMetadata();
-
-    // console.log(pageMetadata, siteMetadata);
-    return { content };
+    return { aboutContent };
   },
 
   head() {
     return {
       title: this.title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase()),
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.$store.state.metadata.savedPagesMetadata?.description
-            ? this.metadata.description
-            : this.siteMetadata?.siteDescription,
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: this.metadata?.socialImage
-            ? this.metadata.socialImage
-            : this.$store.state.metadata.siteSocialImage,
-        },
-      ],
     };
   },
   data() {

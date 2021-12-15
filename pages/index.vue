@@ -30,46 +30,11 @@ export default {
       title: "Home",
     };
   },
-  async asyncData({ $sanity }) {
-    const metaQuery = groq`*[_type == "metadata" && page == 'home'][0]{
-    "pageDesc": pageMetadata.pageDesc,
-    "ogImage": pageMetadata.ogImage.asset->url}`;
-    const metadata = await $sanity
-      .fetch(metaQuery)
-      .then((res) => res.pageMetadata);
-    return { metadata };
-  },
+
+  watchQuery: ["page"],
   head() {
     return {
       title: this.title.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase()),
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.pageMetadata
-            ? this.pageMetadata.pageDesc
-              ? this.pageMetadata.pageDesc
-              : ""
-              ? ""
-              : ""
-            : ""
-            ? ""
-            : "",
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: this.pageMetadata
-            ? this.pageMetadata.ogImage.url
-              ? this.pageMetadata.ogImage.url
-              : ""
-              ? ""
-              : ""
-            : ""
-            ? ""
-            : "",
-        },
-      ],
     };
   },
 };

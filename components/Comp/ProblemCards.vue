@@ -1,18 +1,23 @@
 <template>
   <div class="problem-cards-wrapper cards">
-    <CompProblemCardItem v-for="item in items" :key="item._id" :item="item" />
+    <CompProblemCardItem
+      v-for="item in probItems"
+      :key="item._id"
+      :item="item"
+    />
   </div>
 </template>
 <script>
 import { groq } from "@nuxtjs/sanity";
-
-const query = groq`*[_type == "problems"] | order(order asc)`;
+const probQuery = groq`*[_type == "problems"] | order(order asc)`;
 
 export default {
   async fetch() {
-    this.items = await this.$sanity.fetch(query);
+    this.probItems = await this.$sanity.fetch(probQuery);
+    // console.log(this.probItems);
   },
-  data: () => ({ items: "" }),
+  fetchOnServer: false,
+  data: () => ({ probItems: "" }),
 };
 </script>
 

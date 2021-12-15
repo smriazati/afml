@@ -1,10 +1,10 @@
 <template>
   <div class="roster">
     <h2 class="h1 section-title">Roster</h2>
-    <div v-if="items" class="accordion-wrapper">
+    <div v-if="rosterItems" class="accordion-wrapper">
       <CompRosterItem
         :item="item"
-        v-for="(item, index) in items"
+        v-for="(item, index) in rosterItems"
         :key="index"
       />
     </div>
@@ -12,19 +12,18 @@
 </template>
 <script>
 import { groq } from "@nuxtjs/sanity";
-
-const query = groq`*[_type == "roster"]{
+const rosterQuery = groq`*[_type == "roster"]{
   name,
   role,
   bio,
  "img": img.image
     }`;
-
 export default {
   async fetch() {
-    this.items = await this.$sanity.fetch(query);
+    this.rosterItems = await this.$sanity.fetch(rosterQuery);
   },
-  data: () => ({ items: "" }),
+  fetchOnServer: false,
+  data: () => ({ rosterItems: "" }),
 };
 </script>
 

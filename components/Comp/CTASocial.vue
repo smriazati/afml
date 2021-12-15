@@ -28,14 +28,14 @@
 <script>
 import { groq } from "@nuxtjs/sanity";
 
-const query = groq`*[_type == "siteSettings"][0]{
-  socials
-}`;
-
 export default {
   async fetch() {
+    const query = groq`*[_type == "siteSettings"][0]{
+  socials
+}`;
     this.socials = await this.$sanity.fetch(query);
   },
+  fetchOnServer: false,
   data: () => ({ socials: "" }),
 };
 </script>

@@ -30,7 +30,24 @@ export default {
   mounted() {
     this.addListenersToLinks();
   },
+  unmounted() {
+    this.removeListenersFromLinks();
+  },
   methods: {
+    removeListenersFromLinks() {
+      const parent = this.$refs.mobileNav;
+      if (!parent) {
+        return;
+      }
+      const links = Array.from(parent.querySelectorAll("li:not(.skip)"));
+      if (!links) {
+        return;
+      }
+      // console.log(links);
+      links.forEach((link) => {
+        link.removeEventListener("click", this.emitCloseLink);
+      });
+    },
     addListenersToLinks() {
       const parent = this.$refs.mobileNav;
       if (!parent) {

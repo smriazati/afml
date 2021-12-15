@@ -3,7 +3,7 @@
     <h3 class="h1 section-title">FAQS</h3>
     <div class="accordion-wrapper">
       <CompFAQsAccordionItem
-        v-for="item in items"
+        v-for="item in faqItems"
         :key="item._id"
         :item="item"
       />
@@ -12,16 +12,13 @@
 </template>
 <script>
 import { groq } from "@nuxtjs/sanity";
-
-const query = groq`*[_type == "faq"] | order(order asc){
-  question, answer, _id
-}`;
-
+const faqQuery = groq`*[_type == "faq"] | order(order asc){question, answer, _id}`;
 export default {
   async fetch() {
-    this.items = await this.$sanity.fetch(query);
+    this.faqItems = await this.$sanity.fetch(faqQuery);
   },
-  data: () => ({ items: "" }),
+  fetchOnServer: false,
+  data: () => ({ faqItems: "" }),
 };
 </script>
 

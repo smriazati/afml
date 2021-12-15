@@ -70,6 +70,7 @@ export default {
   async fetch() {
     this.items = await this.$sanity.fetch(query);
   },
+  fetchOnServer: false,
   data() {
     return {
       items: null,
@@ -95,6 +96,7 @@ export default {
       this.addListenersToMobileNav();
     }
   },
+
   computed: {
     isMobile() {
       if (!process.client) {
