@@ -1,6 +1,10 @@
 <template>
   <div class="timeline-item">
-    <div class="timeline-icon link-hover" @click="toggleAccordion()">
+    <div
+      class="timeline-icon link-hover"
+      ref="toggleBtn"
+      @click="toggleAccordion()"
+    >
       <div class="marker" :class="isExpanded ? 'active' : ''"></div>
       <div class="border"></div>
     </div>
@@ -51,7 +55,7 @@ export default {
       }
 
       let date = new Date(this.item.date);
-      let year = date.getFullYear();
+      let year = date.getUTCFullYear();
       return year;
     },
   },

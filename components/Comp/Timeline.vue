@@ -5,7 +5,7 @@
       :key="item._id"
       :item="item"
       :index="index"
-      :ref="`item-${index}`"
+      :ref="`item${index}`"
       @on-open="closeOthers(index)"
     />
   </div>
@@ -24,11 +24,24 @@ export default {
   },
   fetchOnServer: false,
   data: () => ({ tlItems: "" }),
+  computed: {
+    itemCount() {
+      return this.tlItems.length;
+    },
+  },
   methods: {
     closeOthers(i) {
-      console.log(i);
-      const items = this.tlItems;
-      items.forEach(item);
+      let btns = [];
+      for (let loopI = 0; loopI < this.itemCount; loopI++) {
+        if (loopI !== i) {
+          btns.push(this.$refs[`item${loopI}`][0].$refs.toggleBtn);
+        }
+      }
+      console.log(btns);
+      // console.log("clicked on " + i + " out of " + this.itemCount);
+      btns.forEach((btn) => {
+        // btn.click();
+      });
     },
   },
 };

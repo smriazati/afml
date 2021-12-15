@@ -165,6 +165,7 @@ footer.site-footer {
       font-weight: 500;
       line-height: 33px;
       letter-spacing: 0em;
+      white-space: nowrap;
     }
     // desktop
     @media (min-width: $mobile-bp) {

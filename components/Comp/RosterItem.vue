@@ -152,7 +152,7 @@ export default {
         }
         @media (max-width: $mobile-bp) {
           p {
-            font-size: 12px;
+            font-size: 16px;
             line-height: 24px;
           }
         }

@@ -15,7 +15,10 @@
           <p>Federal Poverty Level for an Individual in the U.S.</p>
         </div>
         <div class="fact-list-item">
-          <h3>${{ fourthStat }} Billion</h3>
+          <h3>
+            <span class="force-line-break">${{ fourthStat }}</span
+            >Billion
+          </h3>
           <p>is what the MLB’s Franchise made in 2019</p>
         </div>
       </div>
@@ -115,7 +118,8 @@ export default {
   }
   .fact-list {
     @include flexRow;
-    margin-bottom: 31px;
+    margin-top: 36px;
+    margin-bottom: 36px;
   }
   .fact-list-item {
     flex: 0 0 25%;
@@ -155,11 +159,14 @@ export default {
     @include fontRobotoCondensed;
     font-size: 78px;
     line-height: 70px;
-    line-height: 104px;
     letter-spacing: 0em;
     @media (max-width: $collapse-bp) {
       font-size: 60px;
       line-height: 55px;
+    }
+    .force-line-break {
+      display: block;
+      width: 100%;
     }
   }
   p {

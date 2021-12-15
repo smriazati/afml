@@ -32,18 +32,31 @@ export default {
 
 <style lang="scss">
 $container-padding: 40px;
+$mobile-left-container-padding: 10px;
+$mobile-top-container-padding: 19px;
+
 .our-wins {
   padding: $xl-spacer 0;
   @include mediumContainerPadding;
   .accordion-wrapper {
     margin-top: $lg-spacer;
+    @media (max-width: $collapse-bp) {
+      margin-top: $md-spacer;
+    }
     .accordion-open {
+      @media (max-width: $collapse-bp) {
+        padding: $mobile-top-container-padding $mobile-left-container-padding;
+      }
       .title {
         @include fontRobotoCondensed;
         font-size: 32px;
         font-weight: 700;
         line-height: 38px;
         letter-spacing: 0em;
+        @media (max-width: $collapse-bp) {
+          font-size: 18px;
+          line-height: 21px;
+        }
       }
     }
     .accordion-collapse-area {
@@ -56,6 +69,11 @@ $container-padding: 40px;
         "t d"
         "e d"
         "b l";
+      @media (max-width: $collapse-bp) {
+        grid-template-columns: 80% 20%;
+        grid-auto-rows: minmax(180px, max-content) minmax(180px, max-content)
+          auto;
+      }
       .title {
         grid-area: t;
         @include fontRobotoCondensed;
@@ -65,11 +83,22 @@ $container-padding: 40px;
         letter-spacing: 0em;
         padding-top: $container-padding;
         padding-left: $container-padding;
+        @media (max-width: $collapse-bp) {
+          font-size: 28px;
+          line-height: 32px;
+          padding-top: $mobile-top-container-padding;
+          padding-left: $mobile-left-container-padding;
+        }
       }
       .excerpt {
         padding: 85px 0;
         max-width: 650px;
         padding-left: $container-padding;
+        @media (max-width: $collapse-bp) {
+          font-size: 20px;
+          line-height: 28px;
+          padding-left: $mobile-left-container-padding;
+        }
       }
       .date {
         grid-area: d;
@@ -77,6 +106,10 @@ $container-padding: 40px;
         padding-top: $container-padding;
         overflow: visible;
         width: 100%;
+        margin-top: 0;
+        @media (max-width: $collapse-bp) {
+          padding-top: $mobile-top-container-padding;
+        }
         span {
           display: block;
           overflow: visible;
@@ -107,14 +140,24 @@ $container-padding: 40px;
         line-height: 23px;
         align-self: end;
         letter-spacing: 0em;
+        @media (max-width: $collapse-bp) {
+          font-size: 14px;
+          line-height: 16px;
+          padding-bottom: $mobile-top-container-padding;
+          padding-left: $mobile-left-container-padding;
+        }
       }
       .link {
         grid-area: l;
         background: $indigo;
         color: $white;
         padding: 23px;
+
         i {
           font-size: 23px;
+        }
+        @media (max-width: $collapse-bp) {
+          padding: $mobile-left-container-padding;
         }
       }
     }

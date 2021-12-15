@@ -9,7 +9,7 @@
           <div v-if="!isMobile">
             <nuxt-link to="/"> <SystemLogo /> </nuxt-link>
           </div>
-          <div v-else>
+          <div v-else @click="closeMobileMenu">
             <nuxt-link to="/"> <SystemLogoSecondary /></nuxt-link>
           </div>
         </div>
@@ -92,9 +92,6 @@ export default {
       this.windowWidth = window.innerWidth;
       this.windowHeight = window.innerHeight;
     });
-    if (this.isMobile) {
-      this.addListenersToMobileNav();
-    }
   },
 
   computed: {
@@ -110,16 +107,11 @@ export default {
     },
   },
   methods: {
-    addListenersToMobileNav() {
-      const mobileNav = this.$refs.mobileMenu;
-      if (!mobileNav) {
-        return;
-      }
-      console.log("mobile nav", mobileNav);
-    },
-
     toggleMobileMenu() {
       this.mobileMenu.isExpanded = !this.mobileMenu.isExpanded;
+    },
+    closeMobileMenu() {
+      this.mobileMenu.isExpanded = false;
     },
   },
 };

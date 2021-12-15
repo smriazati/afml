@@ -47,6 +47,10 @@ export default {
       line-height: 30px;
       letter-spacing: 0em;
       padding-left: 20px;
+      @media (max-width: $collapse-bp) {
+        font-size: 16px;
+        line-height: 24px;
+      }
     }
   }
   .headline {
@@ -56,6 +60,10 @@ export default {
     line-height: 76px;
     letter-spacing: 0em;
     text-align: left;
+    @media (max-width: $collapse-bp) {
+      font-size: 32px;
+      line-height: 37px;
+    }
   }
 }
 </style>

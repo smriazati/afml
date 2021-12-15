@@ -44,6 +44,7 @@ export default {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     overflow-wrap: break-word;
+    color: $indigo;
   }
   &:hover {
     border: 2px solid $dark-cinnamon;

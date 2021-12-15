@@ -5,11 +5,13 @@
         So what's the problem?
       </h1>
       <CompProblemCards />
-      <button class="add-more plain flat no-border">
-        <nuxt-link to="/contact"
-          >ARE YOU A PLAYER? SUBMIT YOUR OWN “PROBLEM CARD” HERE.</nuxt-link
-        >
-      </button>
+      <div class="btn-container center">
+        <button class="read-more plain flat">
+          <nuxt-link to="/contact"
+            >ARE YOU A PLAYER? SUBMIT YOUR OWN “PROBLEM CARD” HERE.</nuxt-link
+          >
+        </button>
+      </div>
     </section>
     <section class="timeline">
       <h2 class="h1 section-title">How We Got Here</h2>
@@ -92,12 +94,15 @@ export default {
           padding-bottom: $md-spacer;
         }
       }
-      .add-more {
-        display: block;
+      .btn-container {
         margin-top: $lg-spacer;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
+      }
+      .add-more {
+        display: block;
+
         @include fontMontserrat;
         font-size: 18px;
         font-style: normal;

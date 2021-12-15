@@ -262,6 +262,11 @@ nav ul {
 // accordion
 .accordion-wrapper {
   max-width: 1144px;
+
+  @media (max-width: 1144px) {
+    max-width: 100%;
+  }
+
   margin: 0 auto;
 
   .accordion-item:last-child {

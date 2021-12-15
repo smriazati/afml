@@ -62,12 +62,12 @@ export default {
     flex: 2;
     box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: min-content;
     grid-template-columns: 1fr;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
+    height: 100%;
     > * {
       backface-visibility: hidden;
       grid-column-start: 1;

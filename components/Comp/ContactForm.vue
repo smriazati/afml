@@ -168,4 +168,14 @@ export default {
 </script>
 
 <style lang="scss">
+.contact-form form {
+  @media (max-width: $collapse-bp) {
+    input,
+    textarea {
+      &::placeholder {
+        text-align: left;
+      }
+    }
+  }
+}
 </style>

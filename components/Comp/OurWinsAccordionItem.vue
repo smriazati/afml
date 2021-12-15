@@ -22,8 +22,9 @@
       <p v-if="item.article.excerpt" class="p excerpt">{{ item.excerpt }}</p>
       <button class="link">
         <a :href="item.article.link" target="_blank"
-          ><span class="visually-hidden">Go to article</span></a
-        ><a-icon type="arrow-right"></a-icon>
+          ><span class="visually-hidden">Go to article</span>
+          <a-icon type="arrow-right"></a-icon
+        ></a>
       </button>
     </div>
   </div>
