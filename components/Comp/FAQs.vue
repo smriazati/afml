@@ -29,6 +29,15 @@ export default {
   background: $light-gray;
   padding: $xl-spacer 0;
 
+  .section-title {
+    margin-bottom: $md-spacer;
+  }
+  .accordion-wrapper {
+    @media (max-width: $collapse-bp) {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
   .accordion-item:last-child {
     .accordion-collapse-area {
       border-bottom: 2px solid $mild-gray !important;
