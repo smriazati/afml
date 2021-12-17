@@ -10,8 +10,8 @@
     ></div>
     <div class="wrapper" ref="wrapper">
       <h2>
-        We believe Minor Leaguers deserve <strong>fair pay</strong> and
-        <strong>equitable treatment</strong>.
+        We believe Minor League baseball players deserve
+        <strong>fair pay</strong> and <strong>equitable treatment</strong>.
       </h2>
       <div class="button-wrapper" ref="btnWrapper">
         <SystemBtnCircle msg="Learn more" dest="/theproblem" />

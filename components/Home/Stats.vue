@@ -4,7 +4,7 @@
       <div class="fact-list">
         <div class="fact-list-item">
           <h3>${{ firstStat }}</h3>
-          <p>how much a Single-A Player makes a game</p>
+          <p>minimum annual salary for Minor League player</p>
         </div>
         <div class="fact-list-item">
           <h3>${{ secondStat }}</h3>
@@ -35,14 +35,14 @@ export default {
   },
   data() {
     return {
-      endStats: [41.43, 12000, 12800, 10.7],
+      endStats: [4800, 12000, 12800, 1.78],
       firstStat: 0,
       secondStat: 0,
       thirdStat: 0,
       fourthStat: 0,
       t1: setInterval(() => {
         this.startCounter1();
-      }, 30),
+      }, 60),
       t2: setInterval(() => {
         this.startCounter2();
       }, 3),
@@ -51,7 +51,7 @@ export default {
       }, 3),
       t4: setInterval(() => {
         this.startCounter4();
-      }, 30),
+      }, 50),
     };
   },
   mounted() {
@@ -67,9 +67,10 @@ export default {
     startCounter1() {
       if (this.firstStat > this.endStats[0]) {
         clearInterval(this.t1);
-        this.firstStat = this.endStats[0];
+        let dollarUSLocale = Intl.NumberFormat("en-US");
+        this.firstStat = dollarUSLocale.format(this.endStats[0]);
       } else {
-        this.firstStat = parseFloat((this.firstStat + 0.21).toFixed(2));
+        this.firstStat = parseFloat(this.firstStat + 50);
       }
     },
     startCounter2() {
@@ -95,7 +96,7 @@ export default {
         clearInterval(this.t4);
         this.fourthStat = this.endStats[3];
       } else {
-        this.fourthStat = parseFloat((this.fourthStat + 0.1).toFixed(1));
+        this.fourthStat = parseFloat((this.fourthStat + 0.02).toFixed(2));
       }
     },
     drawCurve() {
