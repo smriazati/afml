@@ -12,7 +12,7 @@
 </template>
 <script>
 import { groq } from "@nuxtjs/sanity";
-const rosterQuery = groq`*[_type == "roster"]{
+const rosterQuery = groq`*[_type == "roster"] | order(order asc){
   name,
   role,
   bio,
