@@ -18,7 +18,6 @@
               :alt="item.article.img.alt"
             />
           </div>
-          <div v-else class="placeholder"></div>
         </figure>
         <h3 v-if="item.headline">{{ item.headline }}</h3>
         <p class="byline caption" v-if="item.article.byline">
@@ -75,10 +74,6 @@ export default {
       "headline btn"
       "byline byline";
 
-    .placeholder {
-      height: 448px;
-      background: $mild-gray;
-    }
     figure {
       grid-area: img;
       margin-bottom: 32px;

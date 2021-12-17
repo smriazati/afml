@@ -127,6 +127,7 @@ export default {
     // }
   }
   .pagination {
+    margin-top: $md-spacer;
     display: flex;
     width: 100%;
     justify-self: center;
