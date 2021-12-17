@@ -46,6 +46,9 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  @media (max-width: $collapse-bp) {
+    margin-bottom: $xs-spacer;
+  }
   &.facing-back {
     .card-content {
       transform: rotateY(180deg);
