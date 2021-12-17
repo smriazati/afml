@@ -5,17 +5,17 @@
       ref="toggleBtn"
       @click="toggleAccordion()"
     >
-      <div class="marker" :class="isExpanded ? 'active' : ''"></div>
+      <div class="marker" :class="!isCollapsed ? 'active' : ''"></div>
       <div class="border"></div>
     </div>
     <div
       class="timeline-item-content"
-      :class="isExpanded ? 'expanded' : 'collapsed'"
+      :class="isCollapsed ? 'collapsed' : 'expanded'"
     >
       <div
-        v-if="!isExpanded"
+        v-if="isCollapsed"
         class="accordion-open link-hover"
-        @click="openAccordion()"
+        @click="toggleAccordion()"
       >
         <h4 v-if="year" class="year">{{ year }}</h4>
         <h3 class="title" v-if="item.title">{{ item.title }}</h3>
@@ -42,11 +42,10 @@ export default {
       type: Number,
       required: true,
     },
-  },
-  data() {
-    return {
-      isExpanded: false,
-    };
+    isCollapsed: {
+      type: Boolean,
+      required: true,
+    },
   },
   computed: {
     year() {
@@ -59,19 +58,19 @@ export default {
       return year;
     },
   },
+  data() {
+    return {
+      collapseState: true,
+    };
+  },
   methods: {
-    openAccordion() {
-      this.isExpanded = true;
-      // set height
-    },
-    closeAccordion() {
-      this.isExpanded = false;
-    },
     toggleAccordion() {
-      this.isExpanded = !this.isExpanded;
-      if (this.isExpanded) {
-        this.$emit("on-open", this.index);
-      }
+      this.collapseState = !this.collapseState;
+      const payload = {
+        collapseState: this.collapseState,
+        index: this.index,
+      };
+      this.$emit("toggle-collapse", payload);
     },
   },
 };

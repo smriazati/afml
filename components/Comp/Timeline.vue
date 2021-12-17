@@ -6,7 +6,8 @@
       :item="item"
       :index="index"
       :ref="`item${index}`"
-      @on-open="closeOthers(index)"
+      :isCollapsed="item.isCollapsed"
+      @toggle-collapse="toggleCollapse"
     />
   </div>
 </template>
@@ -16,7 +17,8 @@ import { groq } from "@nuxtjs/sanity";
 const tlQuery = groq`*[_type == "timeline"] | order(date asc){
   title,
   date,
-  desc
+  desc,
+  "isCollapsed": true
 }`;
 export default {
   async fetch() {
@@ -30,17 +32,12 @@ export default {
     },
   },
   methods: {
-    closeOthers(i) {
-      let btns = [];
-      for (let loopI = 0; loopI < this.itemCount; loopI++) {
-        if (loopI !== i) {
-          btns.push(this.$refs[`item${loopI}`][0].$refs.toggleBtn);
+    toggleCollapse(payload) {
+      this.tlItems[payload.index].isCollapsed = payload.collapseState;
+      this.tlItems.forEach((item, index) => {
+        if (index !== payload.index && !item.isCollapsed) {
+          item.isCollapsed = true;
         }
-      }
-      console.log(btns);
-      // console.log("clicked on " + i + " out of " + this.itemCount);
-      btns.forEach((btn) => {
-        // btn.click();
       });
     },
   },
