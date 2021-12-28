@@ -109,6 +109,9 @@ export default {
 
     .icon {
       flex: 2;
+      @media (max-width: $collapse-bp) {
+        font-size: 18px;
+      }
       i {
         margin-left: auto;
       }

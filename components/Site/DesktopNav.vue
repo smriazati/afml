@@ -17,17 +17,26 @@
             v-show="desktopMenu.isDropdownExpanded"
             :style="`top: ${desktopMenu.menuHeight}px`"
           >
-            <li :style="`flex: 0 0 ${desktopMenu.menuHeight}px`">
+            <li
+              :style="`flex: 0 0 ${desktopMenu.menuHeight}px`"
+              @click="toggleDropdown"
+            >
               <a
                 href="https://www.bonfire.com/store/advocates-for-minor-leaguers/"
                 target="_blank"
                 >Shop</a
               >
             </li>
-            <li :style="`flex: 0 0 ${desktopMenu.menuHeight}px`">
+            <li
+              :style="`flex: 0 0 ${desktopMenu.menuHeight}px`"
+              @click="toggleDropdown"
+            >
               <nuxt-link to="/donate">Give</nuxt-link>
             </li>
-            <li :style="`flex: 0 0 ${desktopMenu.menuHeight}px`">
+            <li
+              :style="`flex: 0 0 ${desktopMenu.menuHeight}px`"
+              @click="toggleDropdown"
+            >
               <nuxt-link to="/contact">Contact Us</nuxt-link>
             </li>
           </ul>

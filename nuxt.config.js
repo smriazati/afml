@@ -34,7 +34,7 @@ export default {
     hoistUseStatements: true  
 },
   plugins: [
-    '~/plugins/antd-ui',
+    '~/plugins/ant-icons',
     "~/plugins/sanityImage",
   ],
 
@@ -67,11 +67,6 @@ export default {
   ],
   generate: { fallback: '404.html' },
   build: {
-    babel: {
-      plugins: [
-        ['import', { libraryName: 'ant-design-vue', style: 'css' } ]
-      ]
-    },
     extractCSS: true,
     loaders: {
       limit: 0,

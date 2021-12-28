@@ -17,14 +17,14 @@
       </h4>
       <p v-if="item.article.byline" class="byline">{{ item.article.byline }}</p>
       <p class="date">
-        <span class="rotate">{{ convDate }}</span>
+        <span v-if="convDate" class="rotate">{{ convDate }}</span>
       </p>
       <p v-if="item.article.excerpt" class="p excerpt">{{ item.excerpt }}</p>
       <button class="link">
         <a :href="item.article.link" target="_blank"
           ><span class="visually-hidden">Go to article</span>
-          <a-icon type="arrow-right"></a-icon
-        ></a>
+          <a-icon type="arrow-right"></a-icon>
+        </a>
       </button>
     </div>
   </div>
@@ -37,6 +37,7 @@ export default {
       required: true,
     },
   },
+
   data() {
     return {
       isExpanded: false,
