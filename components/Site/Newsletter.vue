@@ -2,7 +2,7 @@
   <div class="newsletter-wrapper">
     <div :class="col ? 'col' : 'row'" class="newsletter">
       <div class="message">
-        <p>Keep up with the lastest news.</p>
+        <p>Keep up with the latest news.</p>
         <p>Sign up for our newsletter!</p>
       </div>
       <div class="flex-row">
