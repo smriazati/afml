@@ -53,8 +53,7 @@
       <div class="legal">
         <p class="caption">
           &copy; 2021 Advocates for Minor Leaguers. All rights reserved.
-          Advocates for Minor Leaguers is a 501 (c)(3) non-profit recognized by
-          the IRS (tax ID Number: x).
+          Advocates for Minor Leaguers is a 501 (c)(3) nonprofit.
           <nuxt-link to="/page/privacy">Privacy Policy.</nuxt-link>
           <a href="https://www.otherlove.co" target="_blank"
             >Made with Otherlove.</a

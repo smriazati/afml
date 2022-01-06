@@ -7,11 +7,10 @@
           <div class="col">
             <div class="text">
               <p>
-                Advocates for Minor Leaguers is a 501(c)(3) Nonprofit. Your
+                Advocates for Minor Leaguers is a 501(c)(3) nonprofit. Your
                 donations help us grow our network of supporters as we continue
-                pushing for better MiLB working conditions. As a member, you’ll
-                be the first to know about any updates, events, and promotions
-                of ours. All donations are tax deductible.
+                pushing for better MiLB working conditions. All donations are
+                tax deductible.
               </p>
               <p>We appreciate your support!</p>
             </div>

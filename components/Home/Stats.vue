@@ -4,22 +4,22 @@
       <div class="fact-list">
         <div class="fact-list-item">
           <h3>${{ firstStat }}</h3>
-          <p>minimum annual salary for Minor League player</p>
+          <p>Minimum Annual Salary for a Minor League Player</p>
         </div>
         <div class="fact-list-item">
           <h3>${{ secondStat }}</h3>
-          <p>the median salary for a MiLB player</p>
+          <p>Median Annual Salary for a Minor League Player</p>
         </div>
         <div class="fact-list-item">
           <h3>${{ thirdStat }}</h3>
-          <p>Federal Poverty Level for an Individual in the U.S.</p>
+          <p>Federal Poverty Level for an Individual in the United States</p>
         </div>
         <div class="fact-list-item">
           <h3>
             <span class="force-line-break">${{ fourthStat }}</span
             >Billion
           </h3>
-          <p>is what the MLB’s Franchise made in 2019</p>
+          <p>Average MLB Franchise Value in 2021</p>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      endStats: [4800, 12000, 12800, 1.78],
+      endStats: [4800, 12000, 12800, 1.91],
       firstStat: 0,
       secondStat: 0,
       thirdStat: 0,
