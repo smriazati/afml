@@ -1,8 +1,17 @@
 <template>
   <div class="the-latest">
     <h3 class="h1 section-title">The Latest</h3>
-    <div class="feed-wrapper">
-      <vue-masonry-wall :items="newsItems" :options="options">
+    <div class="feed-wrapper" v-if="newsItems">
+      <!-- <div v-for="item in newsItems" :key="item.id">
+        {{ item.headline }}
+        <CompTheLatestItem :item="item" />
+      </div> -->
+      <!-- <CompTheLatestItem :item="newsItems[1]" /> -->
+      <vue-masonry-wall
+        :items="newsItems"
+        :options="options"
+        :ssr="{ columns: 2 }"
+      >
         <template v-slot:default="{ item }">
           <CompTheLatestItem :item="item" />
         </template>
@@ -23,6 +32,7 @@
 <script>
 import { groq } from "@nuxtjs/sanity";
 import VueMasonryWall from "vue-masonry-wall";
+import TheLatestItem from "./TheLatestItem.vue";
 
 export default {
   async fetch() {
@@ -34,7 +44,7 @@ export default {
         "byline": article.byline,
       "link": article.link,
       "excerpt": article.excerpt,
-      "img": article.img  
+      "img": article.img
       },
       "twitter": twitter.link,
       _id
@@ -47,7 +57,7 @@ export default {
     this.fetches = this.fetches + 1;
   },
   fetchOnServer: false,
-  components: { VueMasonryWall },
+  components: { VueMasonryWall, TheLatestItem },
   data: () => ({
     newsItems: [],
     articleCount: 10,
@@ -63,7 +73,7 @@ export default {
   }),
   methods: {
     append() {
-      console.log("append api call here");
+      // console.log("append api call here");
     },
     async getMoreNews() {
       if (!this.loadedAllArticles) {

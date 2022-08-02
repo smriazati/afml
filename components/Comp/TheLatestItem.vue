@@ -13,9 +13,9 @@
         <figure>
           <div v-if="item.article.img">
             <SanityImage
-              :asset-id="item.article.img._ref"
+              :asset-id="item.article.img.asset._ref"
               auto="format"
-              :alt="item.article.img.alt"
+              width="320"
             />
           </div>
         </figure>
@@ -55,6 +55,9 @@ export default {
       }
 
       const link = this.item.twitter;
+      if (!link) {
+        return null;
+      }
       const id = link.split("/").pop();
       return id;
     },
