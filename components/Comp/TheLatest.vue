@@ -42,11 +42,15 @@ export default {
       headline,
       "article": {
         "byline": article.byline,
-      "link": article.link,
-      "excerpt": article.excerpt,
-      "img": article.img
+        "link": article.link,
+        "excerpt": article.excerpt,
+        "img": article.img
       },
       "twitter": twitter.link,
+      "file": fileLink->{
+        _id, title, 
+        "url": pdf.asset->url
+      },
       _id
     }`;
     // console.log(query);

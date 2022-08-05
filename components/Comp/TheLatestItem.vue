@@ -1,6 +1,18 @@
 <template>
   <div class="the-latest-item item">
     <div v-if="item" class="wrapper">
+      <div class="file-wrapper" v-if="item.type === 'file'">
+        <h3 v-if="item.headline">{{ item.headline }}</h3>
+        <SystemBtnCircle
+          v-if="item.file.url"
+          :icon="true"
+          msg="arrow-right"
+          :dest="`${item.file.url}?dl=${item.file.title
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            .replace(/[&\/\\#,+()$~%.':*?<>{}]/g, '')}.pdf`"
+        />
+      </div>
       <div v-if="item.type === 'tweet'">
         <div v-if="tweetId">
           <Tweet :id="tweetId"><div class="spinner"></div></Tweet>
@@ -68,6 +80,7 @@ export default {
 
 <style lang="scss">
 .the-latest-item {
+  .file-wrapper,
   .article-wrapper {
     display: grid;
     grid-template-columns: 75% 25%;
