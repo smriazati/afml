@@ -1,7 +1,7 @@
-@use 'system/colors.scss'as *;
-@use 'system/typography.scss'as *;
-@use 'system/spacing.scss'as *;
-@use 'system/buttons.scss'as *;
+@use 'system/colors.scss' as *;
+@use 'system/typography.scss' as *;
+@use 'system/spacing.scss' as *;
+@use 'system/buttons.scss' as *;
 
 * {
   box-sizing: border-box;
@@ -13,7 +13,8 @@ html {
   font-size: 16px;
 }
 
-button {
+button,
+.btn {
   @include resetBtn;
   width: 100%;
   background: $white;

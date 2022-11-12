@@ -16,8 +16,7 @@
         </div>
         <div class="fact-list-item">
           <h3>
-            <span class="force-line-break">${{ fourthStat }}</span
-            >Billion
+            <span class="force-line-break">${{ fourthStat }}</span>Billion
           </h3>
           <p>Average MLB Franchise Value in 2021</p>
         </div>
@@ -42,16 +41,16 @@ export default {
       fourthStat: 0,
       t1: setInterval(() => {
         this.startCounter1();
-      }, 60),
+      }, 30),
       t2: setInterval(() => {
         this.startCounter2();
-      }, 3),
+      }, 2),
       t3: setInterval(() => {
         this.startCounter3();
-      }, 3),
+      }, 2),
       t4: setInterval(() => {
         this.startCounter4();
-      }, 50),
+      }, 25),
     };
   },
   mounted() {
@@ -70,7 +69,7 @@ export default {
         let dollarUSLocale = Intl.NumberFormat("en-US");
         this.firstStat = dollarUSLocale.format(this.endStats[0]);
       } else {
-        this.firstStat = parseFloat(this.firstStat + 50);
+        this.firstStat = parseFloat(this.firstStat + 100);
       }
     },
     startCounter2() {
@@ -79,7 +78,7 @@ export default {
         let dollarUSLocale = Intl.NumberFormat("en-US");
         this.secondStat = dollarUSLocale.format(this.endStats[1]);
       } else {
-        this.secondStat = parseInt(this.secondStat + 10);
+        this.secondStat = parseInt(this.secondStat + 50);
       }
     },
     startCounter3() {
@@ -88,7 +87,7 @@ export default {
         let dollarUSLocale = Intl.NumberFormat("en-US");
         this.thirdStat = dollarUSLocale.format(this.endStats[2]);
       } else {
-        this.thirdStat = parseInt(this.thirdStat + 10);
+        this.thirdStat = parseInt(this.thirdStat + 50);
       }
     },
     startCounter4() {
@@ -96,7 +95,7 @@ export default {
         clearInterval(this.t4);
         this.fourthStat = this.endStats[3];
       } else {
-        this.fourthStat = parseFloat((this.fourthStat + 0.02).toFixed(2));
+        this.fourthStat = parseFloat((this.fourthStat + 0.04).toFixed(2));
       }
     },
     drawCurve() {
@@ -117,19 +116,23 @@ export default {
     @include containerWidth;
     @include mediumContainerPadding;
   }
+
   .fact-list {
     @include flexRow;
     margin-top: 36px;
     margin-bottom: 36px;
   }
+
   .fact-list-item {
     flex: 0 0 25%;
     padding-top: 90px;
     padding-bottom: 90px;
+
     @media (max-width: $collapse-bp) {
       padding-top: 45px;
       padding-bottom: 45px;
     }
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -137,39 +140,49 @@ export default {
     text-align: center;
     border-bottom: 2px solid $mild-gray;
     border-top: 2px solid $mild-gray;
+
     &:first-child {
       border-left: 2px solid $mild-gray;
     }
+
     &:last-child {
       border-right: 2px solid $mild-gray;
     }
+
     &:not(:last-child) {
       border-right: 2px solid $mild-gray;
     }
+
     @media (max-width: $collapse-bp) {
       &:not(:first-child) {
         border-top: 0;
       }
+
       &:first-child {
         margin-top: $sm-spacer;
       }
+
       border-left: 2px solid $mild-gray;
     }
   }
+
   h3 {
     @include fontRobotoCondensed;
     font-size: 78px;
     line-height: 70px;
     letter-spacing: 0em;
+
     @media (max-width: $collapse-bp) {
       font-size: 60px;
       line-height: 55px;
     }
+
     .force-line-break {
       display: block;
       width: 100%;
     }
   }
+
   p {
     color: $dark-gray;
     //styleName: Paragraph;

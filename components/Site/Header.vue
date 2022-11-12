@@ -1,29 +1,27 @@
 <template>
   <div class="header-wrapper">
     <client-only>
-      <header
-        :class="mobileMenu.isExpanded ? 'expanded' : ''"
-        class="site-header"
-      >
+      <header :class="mobileMenu.isExpanded ? 'expanded' : ''" class="site-header">
         <div class="logo">
           <div v-if="!isMobile">
-            <nuxt-link to="/"> <SystemLogo /> </nuxt-link>
+            <nuxt-link to="/">
+              <SystemLogo />
+            </nuxt-link>
           </div>
           <div v-else @click="closeMobileMenu">
-            <nuxt-link to="/"> <SystemLogoSecondary /></nuxt-link>
+            <nuxt-link to="/">
+              <SystemLogoSecondary />
+            </nuxt-link>
           </div>
         </div>
         <div v-if="!isMobile" class="cta">
           <div v-if="items">
-            <button
-              v-if="items.headerCta.link && items.headerCta.text"
-              class="reset"
-            >
+            <button v-if="items.headerCta.link && items.headerCta.text" class="reset">
               <a v-if="!items.headerCta.newtab" :href="items.headerCta.link">{{
-                items.headerCta.text
+                  items.headerCta.text
               }}</a>
               <a v-else :href="items.headerCta.link" target="_blank">{{
-                items.headerCta.text
+                  items.headerCta.text
               }}</a>
             </button>
           </div>
@@ -35,15 +33,11 @@
                 <span>Menu</span>
               </button>
               <button v-else @click="toggleMobileMenu">
-                <span class="visually-hidden">Close menu</span
-                ><a-icon type="close"></a-icon>
+                <span class="visually-hidden">Close menu</span>
+                <a-icon type="close"></a-icon>
               </button>
             </div>
-            <SiteMobileNav
-              class="main-nav-wrapper"
-              v-if="mobileMenu.isExpanded"
-              @on-list-click="toggleMobileMenu"
-            />
+            <SiteMobileNav class="main-nav-wrapper" v-if="mobileMenu.isExpanded" @on-list-click="toggleMobileMenu" />
           </div>
 
           <SiteDesktopNav :desktopMenu="desktopMenu" v-else />
@@ -51,7 +45,9 @@
 
         <nav v-if="!mobileMenu.isExpanded" class="donate">
           <ul>
-            <li class="featured"><nuxt-link to="/donate">Donate</nuxt-link></li>
+            <li class="featured">
+              <nuxt-link to="/donate">Donate</nuxt-link>
+            </li>
           </ul>
         </nav>
       </header>
@@ -93,7 +89,12 @@ export default {
       this.windowHeight = window.innerHeight;
     });
   },
-
+  unmounted() {
+    window.removeEventListener("resize", () => {
+      this.windowWidth = window.innerWidth;
+      this.windowHeight = window.innerHeight;
+    });
+  },
   computed: {
     isMobile() {
       if (!process.client) {
@@ -128,16 +129,20 @@ header.site-header {
   // base
   position: relative;
   z-index: 11;
+
   @media (max-width: 1440px) and (min-width: $nav-bp) {
     padding: 0 32px;
   }
+
   .z-top {
     z-index: 99;
   }
+
   ul {
     display: flex;
     list-style: none;
   }
+
   li,
   button {
     @include fontMontserrat;
@@ -163,11 +168,13 @@ header.site-header {
       justify-content: center;
       align-items: center;
       transition: 0.3s ease all;
+
       &:hover {
         background: $indigo;
       }
     }
   }
+
   // desktop
   @media (min-width: $nav-bp) {
     display: grid;
@@ -185,20 +192,25 @@ header.site-header {
       grid-area: nav;
       display: flex;
       border-bottom: 2px solid $indigo;
-      > div {
+
+      >div {
         width: 100%;
-        > ul {
+
+        >ul {
           width: 100%;
           height: 100%;
         }
       }
-      ul.main-nav > li {
+
+      ul.main-nav>li {
         border-right: 2px solid $indigo;
         padding: 0 30px;
-        > span {
+
+        >span {
           flex: 2;
         }
-        > a {
+
+        >a {
           display: flex;
           justify-content: center;
           width: 100%;
@@ -207,6 +219,7 @@ header.site-header {
         }
       }
     }
+
     .logo {
       grid-area: logo;
       display: flex;
@@ -214,16 +227,19 @@ header.site-header {
       align-items: center;
       padding-right: 5px;
     }
+
     .cta {
       button {
         background: transparent;
       }
+
       grid-area: cta;
       border-top: 2px solid $indigo;
       border-bottom: 2px solid $indigo;
       display: flex;
       justify-content: center;
       align-items: center;
+
       a {
         @include fontRoboto;
         font-size: 14px;
@@ -233,6 +249,7 @@ header.site-header {
         text-transform: uppercase;
       }
     }
+
     .donate {
       grid-area: donate;
       border-bottom: 2px solid $indigo;
@@ -247,30 +264,37 @@ header.site-header {
         display: flex;
         align-items: center;
         position: relative;
+
         a {
           position: relative;
           flex: 1;
         }
+
         i {
           transition: 0.3s ease all;
         }
+
         &:hover {
           background: $indigo;
-          > a,
-          > span {
+
+          >a,
+          >span {
             color: $white;
           }
+
           i {
             color: $white;
           }
         }
       }
     }
+
     .dropdown {
       position: absolute;
       width: 100%;
       height: 100%;
       left: 0;
+
       button {
         background: transparent;
         position: absolute;
@@ -283,13 +307,16 @@ header.site-header {
         padding-right: 15px;
         // padding-top: 5px;
         color: $indigo;
+
         span.icon {
           padding: 0;
         }
+
         i {
           font-size: 14px;
         }
       }
+
       ul {
         position: absolute;
         width: calc(100% + 4px);
@@ -299,10 +326,12 @@ header.site-header {
         flex-direction: column;
         border-left: 2px solid $indigo;
         border-right: 2px solid $indigo;
+
         li {
           &:first-child {
             border-top: 2px solid $indigo;
           }
+
           color: $indigo;
           background: $white;
           display: flex;
@@ -311,6 +340,7 @@ header.site-header {
           width: 100%;
           // background: white;
           border-bottom: 2px solid $indigo;
+
           &:hover {
             background: $indigo;
             color: $white;
@@ -326,18 +356,22 @@ header.site-header {
 
     .logo {
       background: $indigo;
+
       figure img {
         width: 60px;
         height: 60px;
         overflow: hidden;
       }
     }
+
     // collapsed
     &:not(.expanded) {
       display: flex;
+
       .logo {
         flex: 0 0 60px;
       }
+
       .nav,
       .donate {
         flex: 50%;
@@ -345,6 +379,7 @@ header.site-header {
         border-bottom: 2px solid $indigo;
         border-top: 2px solid $indigo;
         display: flex;
+
         div,
         ul,
         li,
@@ -357,6 +392,7 @@ header.site-header {
           align-items: center;
         }
       }
+
       .main-nav-wrapper,
       .cta,
       .social-menu,
@@ -365,10 +401,12 @@ header.site-header {
         display: none;
         opacity: 0;
       }
+
       button {
         color: $indigo;
       }
     }
+
     &.expanded {
       width: 100vw;
       height: 100vh;
@@ -383,10 +421,12 @@ header.site-header {
         top: 10px;
         left: 10px;
       }
+
       .menu-control {
         position: absolute;
         top: 40px;
         right: 40px;
+
         button {
           border-radius: 50%;
           width: 30px;
@@ -395,13 +435,16 @@ header.site-header {
           display: flex;
           align-items: center;
           justify-content: center;
+
           @media (max-width: $collapse-bp) {
             padding: 0;
           }
+
           i {
             display: flex;
             align-items: center;
             justify-content: center;
+
             @media (max-width: $collapse-bp) {
               font-size: 13px;
               color: $indigo;
@@ -409,16 +452,19 @@ header.site-header {
           }
         }
       }
+
       .main-nav-wrapper {
         position: absolute;
         top: 100px;
         width: 100%;
         height: 100%;
+
         ul {
           padding: 10px;
 
           flex-direction: column;
         }
+
         .main-nav {
           li {
             @include fontRobotoCondensed;
@@ -427,14 +473,17 @@ header.site-header {
             line-height: 52px;
             letter-spacing: 0em;
           }
-          > li:last-child {
+
+          >li:last-child {
             border-top: 2px solid $indigo;
             margin-top: 11px;
             padding-top: 11px;
           }
         }
+
         .secondary-nav {
           padding-left: 0;
+
           li {
             @include fontMontserrat;
             font-size: 18px;
@@ -443,13 +492,16 @@ header.site-header {
             letter-spacing: 0em;
           }
         }
+
         .social-menu {
           ul {
             flex-direction: row;
             flex-wrap: wrap;
+
             li {
               padding-right: 27px;
               font-size: 54px;
+
               @media (max-width: $nav-bp) {
                 font-size: 35px;
               }

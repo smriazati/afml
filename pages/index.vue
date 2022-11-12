@@ -45,26 +45,34 @@ export default {
   &.page {
     margin-top: 0;
   }
+
   main {
     overflow: hidden;
+
     section {
       position: relative;
+
       &.news {
         background: $light-gray;
       }
+
       &.newsletter {
         padding: $xxl-spacer 0;
+
         // overflow-x: hidden;
         @media (max-width: $collapse-bp) {
           padding: $lg-spacer 0;
         }
-        > * {
+
+        >* {
           max-width: 1142px;
           margin: 0 auto;
         }
       }
+
       &.cta {
         margin-bottom: $xxl-spacer;
+
         @media (max-width: $collapse-bp) {
           margin-bottom: $lg-spacer;
         }
