@@ -2,8 +2,9 @@
     <div>
         <div v-if="item" class="flex-col center file-container">
             <p class="h3">If the file does not open in your browser automatically, <a
-                    :href="`${item.file.url}?dl=${item.slug.current}`">click here to start the download</a>.</p>
-            <a :href="`${item.file.url}?dl=${item.slug.current}`" class="btn btn-orange">
+                    :href="`${item.file.url}?dl=${item.slug.current}.${item.file.extension}`">click here to start the
+                    download</a>.</p>
+            <a :href="`${item.file.url}?dl=${item.slug.current}.${item.file.extension}`" class="btn btn-orange">
                 <span>Download file</span>
             </a>
             <a :href="`${item.file.url}`" class="btn btn-orange">
@@ -16,6 +17,7 @@
 
 
 <script>
+
 import { groq } from "@nuxtjs/sanity";
 
 export default {
@@ -33,26 +35,17 @@ export default {
         if (item) {
             const link = `${item.file.url}`;
             if (process.browser) {
-                // console.log('opening link: ', link)
-                window.open(link, '_blank', 'fullscreen=yes')
-            } else {
-                // console.log('not opening a link', link)
+                window.open(link, '_blank')
             }
             return {
                 item: item
             }
         } else {
-            // console.log('no item / link')
             error({ statusCode: 404 })
         }
 
     },
     head() {
-        return {
-            title: this.$route.params.slug
-        };
-    },
-    data() {
         return {
             title: this.$route.params.slug
         };
